@@ -1,0 +1,12 @@
+[submodule "dg5f_ros2"]
+	path = dg5f_ros2
+	url = https://github.com/tesollodelto/dg5f_ros2
+[submodule "dg3f_m_ros2"]
+	path = dg3f_m_ros2
+	url = https://github.com/tesollodelto/dg3f_m_ros2
+[submodule "dg3f_b_ros2"]
+	path = dg3f_b_ros2
+	url = https://github.com/tesollodelto/dg3f_b_ros2
+[submodule "dg4f_ros2"]
+	path = dg4f_ros2
+	url = https://github.com/tesollodelto/dg4f_ros2
