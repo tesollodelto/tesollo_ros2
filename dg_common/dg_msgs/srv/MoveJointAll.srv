@@ -1,0 +1,8 @@
+# MoveJointAll service
+# Performs a repositioning of all joints
+
+# Request
+float32[20] target_joint  # Enter the target position values (in degrees) for all joints
+---
+# Response
+int32 result  # DG_RESULT enum value

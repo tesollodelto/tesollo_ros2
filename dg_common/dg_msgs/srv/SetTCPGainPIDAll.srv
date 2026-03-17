@@ -1,0 +1,11 @@
+# SetTCPGainPIDAll service
+# Set the maximum values of the P, I, D gains and error integrals for all fingers for gripper TCP position control
+
+# Request
+float32[30] gain_p  # Enter P Gain for all fingers (6 axes * 5 fingers)
+float32[30] gain_d  # Enter D Gain for all fingers
+float32[30] gain_i  # Enter I Gain for all fingers
+float32[30] i_limit  # Enter the maximum value of the error integral for all fingers
+---
+# Response
+int32 result  # DG_RESULT enum value

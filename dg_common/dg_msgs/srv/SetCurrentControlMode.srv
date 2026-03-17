@@ -1,0 +1,8 @@
+# SetCurrentControlMode service
+# Set the gripper to current-based position control mode
+
+# Request
+int32 is_on  # Setting the current control mode
+---
+# Response
+int32 result  # DG_RESULT enum value

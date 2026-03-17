@@ -1,0 +1,8 @@
+# LoadRecipePoseData service
+# This works by reading the pose recipe information for the entered number
+
+# Request
+int32 pose_number  # Recipe Pose Number
+---
+# Response
+int32 result  # DG_RESULT enum value

@@ -1,0 +1,8 @@
+# LoadRecipeGraspData service
+# Reads and sets the grasp recipe data for the entered number
+
+# Request
+int32 grasp_number  # Recipe grasp number
+---
+# Response
+int32 result  # DG_RESULT enum value

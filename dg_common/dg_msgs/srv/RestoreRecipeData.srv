@@ -1,0 +1,8 @@
+# RestoreRecipeData service
+# Restore recipe data from backup file
+
+# Request
+string path  # Enter the backup file path
+---
+# Response
+int32 result  # DG_RESULT enum value

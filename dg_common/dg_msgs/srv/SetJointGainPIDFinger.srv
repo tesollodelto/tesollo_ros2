@@ -1,0 +1,12 @@
+# SetJointGainPIDFinger service
+# Set the maximum values for P, I, D gain and error integration for a single finger
+
+# Request
+float32[4] gain_p  # Enter P Gain for each joint
+float32[4] gain_d  # Enter the D gain for each joint
+float32[4] gain_i  # Enter the I gain for each joint
+float32[4] i_limit  # Setting the Error Integral Maximum for each joint
+int32 finger_number  # Enter the finger number
+---
+# Response
+int32 result  # DG_RESULT enum value

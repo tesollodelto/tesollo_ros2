@@ -1,0 +1,7 @@
+# AddMoveBlendJoint service
+# Deletes the list of currently added blend data
+
+# Request (empty)
+---
+# Response
+int32 result  # DG_RESULT enum value

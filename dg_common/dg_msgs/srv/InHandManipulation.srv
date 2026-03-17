@@ -1,0 +1,9 @@
+# InHandManipulation service
+# Manipulate the grasped object (DG-3F-B and DG-3F-M only)
+
+# Request
+float32[6] target_offset  # Offset to move the grasped object by (mm) (ΔX, ΔY, ΔZ, ΔRX, ΔRY, ΔRZ)
+int32 motion_time  # Set offset travel time (ms)
+---
+# Response
+int32 result  # DG_RESULT enum value

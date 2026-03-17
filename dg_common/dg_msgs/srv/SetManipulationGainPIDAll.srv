@@ -1,0 +1,11 @@
+# SetManipulationGainPIDAll service
+# Set the P, I, D gains and error integral maximums for inhand manipulation Motion
+
+# Request
+float32[3] gain_p  # P-gain input to control the position of the object (X, Y, Z)
+float32[3] gain_d  # D-gain input for positioning the object
+float32[3] gain_i  # I-gain input to control the position of the object
+float32[3] i_limit  # Maximum value of the error integral
+---
+# Response
+int32 result  # DG_RESULT enum value

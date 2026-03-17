@@ -1,0 +1,10 @@
+# SetBootRecipe service
+# Set the recipe to start upon gripper booting
+
+# Request
+int32 recipe_pose_number  # Set the pose recipe number
+int32 recipe_gain_number  # Set the gain recipe number
+int32 recipe_grasp_number  # Set the grasp recipe number
+---
+# Response
+int32 result  # DG_RESULT enum value

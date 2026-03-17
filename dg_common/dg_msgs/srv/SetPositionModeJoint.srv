@@ -1,0 +1,9 @@
+# SetPositionModeJoint service
+# Set the position control mode for one joint
+
+# Request
+int32 position_mode  # Enable position control mode
+int32 joint_number  # Enter the joint number
+---
+# Response
+int32 result  # DG_RESULT enum value

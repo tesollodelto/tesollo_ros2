@@ -1,0 +1,12 @@
+<library path="delto_hardware">
+  <class name="delto_hardware/SystemInterface"
+         type="delto_hardware::SystemInterface"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      Unified hardware interface for all Delto gripper models.
+      Supports DG3F-B, DG3F-M, DG4F, DG5F-L, and DG5F-R.
+      Features include joint position/velocity/effort control,
+      fingertip F/T sensors (model dependent), and GPIO control.
+    </description>
+  </class>
+</library>

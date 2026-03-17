@@ -1,0 +1,8 @@
+# GetDiagnosisSystem service
+# Getter that retrieves data from the DiagnosisSystem struct
+
+# Request (empty)
+---
+# Response
+dg_msgs/DiagnosisSystem diagnosis_data
+int32 result  # DG_RESULT enum value

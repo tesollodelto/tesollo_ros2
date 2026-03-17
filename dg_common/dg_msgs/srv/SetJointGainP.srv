@@ -1,0 +1,9 @@
+# SetJointGainP service
+# Sets the P Gain value for one joint
+
+# Request
+float32 gain_p  # Enter P Gain
+int32 joint_number  # Enter the joint number
+---
+# Response
+int32 result  # DG_RESULT enum value

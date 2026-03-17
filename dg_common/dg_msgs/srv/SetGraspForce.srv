@@ -1,0 +1,8 @@
+# SetGraspForce service
+# Change grasp strength
+
+# Request
+float32 grasp_force  # Set grasp strength
+---
+# Response
+int32 result  # DG_RESULT enum value

@@ -1,0 +1,8 @@
+# UpdateRecipeGraspData service
+# Saves the currently set Grasp settings to the entered Grasp Recipe
+
+# Request
+int32 grasp_number  # Recipe grasp number
+---
+# Response
+int32 result  # DG_RESULT enum value

@@ -1,0 +1,8 @@
+# SetMotionTimeAll service
+# Set the position travel time for every joint individually
+
+# Request
+int32[20] motion_time  # Set the time to move the location (in ms) for all joints
+---
+# Response
+int32 result  # DG_RESULT enum value

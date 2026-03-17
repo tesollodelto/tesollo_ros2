@@ -1,0 +1,166 @@
+#!/usr/bin/env python3
+
+import rclpy
+from rclpy.node import Node
+import time
+
+# DG custom service imports
+from dg_msgs.srv import (
+    SetGripperSystem,
+    SetGripperOption,
+    ConnectToGripper,
+    SystemStart,
+    LoadRecipePoseData,
+    LoadRecipeGraspData,
+    StartGraspMotion
+)
+
+from dg_msgs.msg import (
+    GripperSystemSetting,
+    GripperSetting
+)
+
+
+def init(node):
+    system_setting = GripperSystemSetting()
+    system_setting.comport = "/dev/ttyUSB0"
+    system_setting.ip = "169.254.186.73"
+    system_setting.port = 502
+    system_setting.communication_mode = 0
+    system_setting.control_mode = 0 # operator mode : 0, developer mode : 1
+    system_setting.read_timeout = 1000
+    system_setting.slave_id = 1
+    system_setting.baudrate = 115200
+
+    client = node.create_client(SetGripperSystem, "dg/set_gripper_system")
+    while not client.wait_for_service(timeout_sec=1.0):
+        node.get_logger().info("Service not available, waiting again...")
+
+    request = SetGripperSystem.Request()
+    request.setting = system_setting
+
+    future = client.call_async(request)
+    rclpy.spin_until_future_complete(node, future)
+    result = future.result()
+    print("Message: ", result.result)
+
+    time.sleep(1.0)
+    # Connect to gripper
+    connect_client = node.create_client(ConnectToGripper, "dg/connect_to_gripper")
+    while not connect_client.wait_for_service(timeout_sec=1.0):
+        node.get_logger().info("Connect service not available, waiting again...")
+    connect_request = ConnectToGripper.Request()
+    connect_future = connect_client.call_async(connect_request)
+    rclpy.spin_until_future_complete(node, connect_future)
+    connect_result = connect_future.result()
+    print("Connect Message: ", connect_result.result)
+
+    # Gripper setting
+    gs = GripperSetting()
+    gs.model = 0x5F12  # DG5FL
+    gs.moving_inpose = 0.5
+    gs.joint_inpose = [0.0] * 20
+    gs.joint_offset = [0.0] * 20
+    gs.received_data_type = [1, 2, 0, 0, 0, 0]
+    gs.joint_count = 20
+    gs.finger_count = 5
+
+    option_client = node.create_client(SetGripperOption, "dg/set_gripper_option")
+    while not option_client.wait_for_service(timeout_sec=1.0):
+        node.get_logger().info("Option service not available, waiting again...")
+    option_request = SetGripperOption.Request()
+    option_request.setting = gs
+    option_future = option_client.call_async(option_request)
+    rclpy.spin_until_future_complete(node, option_future)
+    option_result = option_future.result()
+    print("Option Message: ", option_result.result)
+
+    time.sleep(1.0)
+
+    # Start system
+    start_client = node.create_client(SystemStart, "dg/system_start")
+    while not start_client.wait_for_service(timeout_sec=1.0):
+        node.get_logger().info("Start service not available, waiting again...")
+
+    start_request = SystemStart.Request()
+    start_future = start_client.call_async(start_request)
+    rclpy.spin_until_future_complete(node, start_future)
+    start_result = start_future.result()
+    print("Start Message: ", start_result.result)
+
+    start_request = SystemStart.Request()
+    start_future = start_client.call_async(start_request)
+    rclpy.spin_until_future_complete(node, start_future)
+    start_result = start_future.result()
+    print("Start Message: ", start_result.result)
+
+
+def load_pose(node, pose_num):
+    client = node.create_client(LoadRecipePoseData, "dg/load_recipe_pose_data")
+    while not client.wait_for_service(timeout_sec=1.0):
+        node.get_logger().info("Load pose service not available, waiting again...")
+
+    request = LoadRecipePoseData.Request()
+    request.pose_number = int(pose_num)
+
+    future = client.call_async(request)
+    rclpy.spin_until_future_complete(node, future)
+    result = future.result()
+    if hasattr(result, 'result'):
+        print("LoadPose Message: ", result.result)
+    else:
+        print("LoadPose Response: ", result)
+
+def load_grasp(node, grasp_num):
+    client = node.create_client(LoadRecipeGraspData, "dg/load_recipe_grasp_data")
+    while not client.wait_for_service(timeout_sec=1.0):
+        node.get_logger().info("Load grasp service not available, waiting again...")
+
+    request = LoadRecipeGraspData.Request()
+    request.grasp_number = int(grasp_num)
+
+    future = client.call_async(request)
+    rclpy.spin_until_future_complete(node, future)
+    result = future.result()
+    if hasattr(result, 'result'):
+        print("LoadGrasp Message: ", result.result)
+    else:
+        print("LoadGrasp Response: ", result)
+
+def set_grasp(node, is_grasp: bool):
+    client = node.create_client(StartGraspMotion, "dg/start_grasp_motion")
+    while not client.wait_for_service(timeout_sec=1.0):
+        node.get_logger().info("Start grasp motion service not available, waiting again...")
+
+    request = StartGraspMotion.Request()
+    request.is_grasp = is_grasp
+
+    future = client.call_async(request)
+    rclpy.spin_until_future_complete(node, future)
+    result = future.result()
+    if hasattr(result, 'result'):
+        print("StartGraspMotion Message: ", result.result)
+    else:
+        print("StartGraspMotion Response: ", result)
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = Node("dg_sdk_ros2_bridge_node")
+    try:
+        init(node)
+
+        for i in range(1, 7):
+            load_pose(node, i)
+            load_grasp(node, i)
+            time.sleep(0.5)
+            set_grasp(node, True)
+            time.sleep(2.0)
+            set_grasp(node, False)
+            time.sleep(1.0)
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()

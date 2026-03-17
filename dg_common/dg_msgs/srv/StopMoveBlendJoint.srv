@@ -1,0 +1,7 @@
+# StopMoveBlendJoint service
+# Stop the blend motion currently being performed
+
+# Request (empty)
+---
+# Response
+int32 result  # DG_RESULT enum value

@@ -1,0 +1,8 @@
+# SetPositionModeAll service
+# Set the position control mode for all joints
+
+# Request
+int32[20] position_mode  # Enable position control mode for all joints
+---
+# Response
+int32 result  # DG_RESULT enum value

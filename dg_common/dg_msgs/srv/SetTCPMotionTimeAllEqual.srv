@@ -1,0 +1,8 @@
+# SetTCPMotionTimeAllEqual service
+# Set the same target coordinate arrival time for all fingers when controlling gripper TCP positioning
+
+# Request
+int32 motion_time  # Set the time to move the location (in ms)
+---
+# Response
+int32 result  # DG_RESULT enum value

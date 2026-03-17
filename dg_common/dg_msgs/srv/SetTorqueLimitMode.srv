@@ -1,0 +1,8 @@
+# SetTorqueLimitMode service
+# Set the torque limit mode for the gripper
+
+# Request
+int32 is_on  # Setting the Torque Limit Mode
+---
+# Response
+int32 result  # DG_RESULT enum value

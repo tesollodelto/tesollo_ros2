@@ -1,0 +1,9 @@
+# SetMotionTimeFinger service
+# Set the time to move the position of a single finger
+
+# Request
+int32[4] motion_time  # Set the time to move the location (in ms) for each joint
+int32 finger_number  # Enter the finger number
+---
+# Response
+int32 result  # DG_RESULT enum value

@@ -1,0 +1,7 @@
+# EEPROMWrite service
+# Write settings to EEPROM
+
+# Request (empty)
+---
+# Response
+int32 result  # DG_RESULT enum value

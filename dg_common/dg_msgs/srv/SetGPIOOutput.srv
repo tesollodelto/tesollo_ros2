@@ -1,0 +1,9 @@
+# SetGPIOOutput service
+# Set the gripper GPIO output
+
+# Request
+int32 gpio  # Set output values
+int32 output_number  # Set the output number
+---
+# Response
+int32 result  # DG_RESULT enum value

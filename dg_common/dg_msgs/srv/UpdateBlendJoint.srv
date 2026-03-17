@@ -1,0 +1,8 @@
+# UpdateBlendJoint service
+# Adds blend action data to the blend action recipe
+
+# Request
+dg_msgs/RecipeBlendData blend_data
+---
+# Response
+int32 result  # DG_RESULT enum value

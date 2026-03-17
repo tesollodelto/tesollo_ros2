@@ -1,0 +1,8 @@
+# UpdateRecipeGainData service
+# Saves the currently set P, I, and D gains to recipe
+
+# Request
+int32 gain_number  # Recipe gain number
+---
+# Response
+int32 result  # DG_RESULT enum value

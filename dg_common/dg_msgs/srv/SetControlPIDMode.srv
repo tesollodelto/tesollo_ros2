@@ -1,0 +1,8 @@
+# SetControlPIDMode service
+# Sets the gripper controller (PD mode or PID mode)
+
+# Request
+int32 mode  # Setting the Gain Mode (0: PD, 1: PID)
+---
+# Response
+int32 result  # DG_RESULT enum value

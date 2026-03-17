@@ -1,0 +1,9 @@
+# SetJointGainPFinger service
+# Sets the P gain value for a single finger joint
+
+# Request
+float32[4] gain_p  # Enter P Gain for each joint of the finger
+int32 finger_number  # Enter the finger number
+---
+# Response
+int32 result  # DG_RESULT enum value

@@ -1,0 +1,8 @@
+# SetBootMode service
+# Boot mode entry function for firmware download
+
+# Request
+string password
+---
+# Response
+int32 result  # DG_RESULT enum value

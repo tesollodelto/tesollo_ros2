@@ -1,0 +1,10 @@
+# SetJointGainIFinger service
+# Set the I-gain value and error integral maximum for a single finger
+
+# Request
+float32[4] gain_i  # Enter the I gain for each joint
+float32[4] i_limit  # Setting the Error Integral Maximum for each joint
+int32 finger_number  # Enter the finger number
+---
+# Response
+int32 result  # DG_RESULT enum value

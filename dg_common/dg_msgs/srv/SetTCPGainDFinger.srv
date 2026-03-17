@@ -1,0 +1,9 @@
+# SetTCPGainDFinger service
+# Set the D-gain for one finger for gripper TCP positioning control
+
+# Request
+float32[6] gain_d  # Enter D Gain for each axis (x, y, z, rx, ry, rz)
+int32 finger_number  # Enter the finger number
+---
+# Response
+int32 result  # DG_RESULT enum value

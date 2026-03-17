@@ -1,0 +1,11 @@
+# SetJointGainPIDAll service
+# Set the maximum values for the P, I, and D gains and error integrals for all joints
+
+# Request
+float32[20] gain_p  # Enter P Gain for all joints
+float32[20] gain_d  # Enter the D gain for all joints
+float32[20] gain_i  # Enter the I gain for all joints
+float32[20] i_limit  # Setting the Error Integral Maximum for all joints
+---
+# Response
+int32 result  # DG_RESULT enum value

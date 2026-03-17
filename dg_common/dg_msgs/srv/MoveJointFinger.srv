@@ -1,0 +1,9 @@
+# MoveJointFinger service
+# Performs a repositioning of a single finger joint
+
+# Request
+float32[4] target_joint  # Enter the target position values (in degrees) for each joint
+int32 finger_number  # Enter the finger number
+---
+# Response
+int32 result  # DG_RESULT enum value

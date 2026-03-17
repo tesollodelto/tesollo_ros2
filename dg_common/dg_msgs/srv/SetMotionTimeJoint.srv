@@ -1,0 +1,9 @@
+# SetMotionTimeJoint service
+# Sets the position travel time for one joint
+
+# Request
+int32 motion_time  # Set the time to move the location (in ms)
+int32 joint_number  # Enter the joint number
+---
+# Response
+int32 result  # DG_RESULT enum value

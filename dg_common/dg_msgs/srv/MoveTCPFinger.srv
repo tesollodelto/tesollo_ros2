@@ -1,0 +1,9 @@
+# MoveTCPFinger service
+# One gripper finger controls the TCP position
+
+# Request
+float32[6] target_tcp  # Target Cartesian Coordinate Array (x, y, z, rx, ry, rz)
+int32 finger_number  # Finger number to control position
+---
+# Response
+int32 result  # DG_RESULT enum value

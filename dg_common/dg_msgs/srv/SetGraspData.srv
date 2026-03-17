@@ -1,0 +1,11 @@
+# SetGraspData service
+# Sets the grasp algorithm based on force control
+
+# Request
+int32 grasp_mode  # Setting the grasp mode (DG_GRASP_MODE enum)
+float32 grasp_force  # Set grasp strength
+int32 grasp_option  # Set grasp options
+int32 smooth_grasping  # Using soft grasps
+---
+# Response
+int32 result  # DG_RESULT enum value

@@ -1,0 +1,8 @@
+# GetCommunicationPeriod service
+# Getter that retrieves communication period data
+
+# Request (empty)
+---
+# Response
+int32 count_period  # Communication Period (Hz)
+int32 result  # DG_RESULT enum value

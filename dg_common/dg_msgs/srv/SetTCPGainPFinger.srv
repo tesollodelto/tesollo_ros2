@@ -1,0 +1,9 @@
+# SetTCPGainPFinger service
+# Set gain values for the X, Y, Z, RX, RY, and RZ axes per finger
+
+# Request
+float32[6] gain_p  # Enter P Gain for each axis (x, y, z, rx, ry, rz)
+int32 finger_number  # Enter the finger number
+---
+# Response
+int32 result  # DG_RESULT enum value

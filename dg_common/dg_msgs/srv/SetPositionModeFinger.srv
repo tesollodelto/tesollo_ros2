@@ -1,0 +1,9 @@
+# SetPositionModeFinger service
+# Set the position control mode for single finger joints
+
+# Request
+int32[4] position_mode  # Enable position control mode for each joint
+int32 finger_number  # Enter the finger number
+---
+# Response
+int32 result  # DG_RESULT enum value

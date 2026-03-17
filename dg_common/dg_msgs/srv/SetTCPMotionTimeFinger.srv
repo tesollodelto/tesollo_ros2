@@ -1,0 +1,9 @@
+# SetTCPMotionTimeFinger service
+# Sets the target coordinate arrival time for one finger when controlling gripper TCP positioning
+
+# Request
+int32 motion_time  # Set the time to move the location (in ms)
+int32 finger_number  # Enter the finger number
+---
+# Response
+int32 result  # DG_RESULT enum value

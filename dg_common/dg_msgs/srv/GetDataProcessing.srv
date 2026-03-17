@@ -1,0 +1,8 @@
+# GetDataProcessing service
+# Getter that retrieves backup status data
+
+# Request (empty)
+---
+# Response
+int32 status  # Backup result (bool)
+int32 result  # DG_RESULT enum value

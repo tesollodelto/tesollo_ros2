@@ -1,0 +1,7 @@
+# ConnectToGripper service
+# Attempt to establish a communication connection to the gripper
+
+# Request (empty)
+---
+# Response
+int32 result  # DG_RESULT enum value

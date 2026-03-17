@@ -1,0 +1,8 @@
+# LoadRecipeGainData service
+# Reads and sets the gain recipe data for the entered number
+
+# Request
+int32 gain_number  # Recipe gain number
+---
+# Response
+int32 result  # DG_RESULT enum value

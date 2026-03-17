@@ -1,0 +1,8 @@
+# SetGPIOOutputAll service
+# Sets the gripper global GPIO output
+
+# Request
+int32[4] output  # Set output values for all GPIO
+---
+# Response
+int32 result  # DG_RESULT enum value

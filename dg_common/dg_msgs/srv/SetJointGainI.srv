@@ -1,0 +1,10 @@
+# SetJointGainI service
+# Sets the I gain value and error integral maximum for one joint
+
+# Request
+float32 gain_i  # Enter the I gain
+float32 i_limit  # Setting the Error Integral Maximum
+int32 joint_number  # Enter the joint number
+---
+# Response
+int32 result  # DG_RESULT enum value

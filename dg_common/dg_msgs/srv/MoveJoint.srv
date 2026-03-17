@@ -1,0 +1,9 @@
+# MoveJoint service
+# Performs a repositioning of one joint
+
+# Request
+float32 target_joint  # Enter the target position value (in degrees)
+int32 joint_number  # Enter the joint number
+---
+# Response
+int32 result  # DG_RESULT enum value

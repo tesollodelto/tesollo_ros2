@@ -1,0 +1,8 @@
+# GetReceivedGPIOData service
+# Getter that retrieves GPIO data
+
+# Request (empty)
+---
+# Response
+dg_msgs/ReceivedGPIOData gpio_data
+int32 result  # DG_RESULT enum value

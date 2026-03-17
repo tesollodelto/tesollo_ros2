@@ -1,0 +1,9 @@
+# SetIp service
+# Set the gripper IP and Port
+
+# Request
+int32[4] ip  # IP address as array of 4 integers
+int32 port
+---
+# Response
+int32 result  # DG_RESULT enum value

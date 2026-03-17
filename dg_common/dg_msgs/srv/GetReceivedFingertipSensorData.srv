@@ -1,0 +1,8 @@
+# GetReceivedFingertipSensorData service
+# Getter that retrieves fingertip sensor data
+
+# Request (empty)
+---
+# Response
+dg_msgs/ReceivedFingertipSensorData fingertip_data
+int32 result  # DG_RESULT enum value

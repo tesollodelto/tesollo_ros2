@@ -1,0 +1,9 @@
+# SetLowPassFilterAlpha service
+# Sets the low-pass filter gain
+
+# Request
+int32 is_used  # Enable filters
+float32 alpha  # Set filter gain values
+---
+# Response
+int32 result  # DG_RESULT enum value

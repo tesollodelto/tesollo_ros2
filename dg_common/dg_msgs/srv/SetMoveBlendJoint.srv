@@ -1,0 +1,8 @@
+# SetMoveBlendJoint service
+# Saves the list of currently added blends to the Blend Motion list
+
+# Request
+int32 blend_number  # Enter a Blend Motion Number
+---
+# Response
+int32 result  # DG_RESULT enum value

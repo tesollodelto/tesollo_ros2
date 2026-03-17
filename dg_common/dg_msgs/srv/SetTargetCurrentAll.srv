@@ -1,0 +1,8 @@
+# SetTargetCurrentAll service
+# Set the target current value for all joints
+
+# Request
+int32[20] target_current  # Enter target current values (mA) for all joints
+---
+# Response
+int32 result  # DG_RESULT enum value

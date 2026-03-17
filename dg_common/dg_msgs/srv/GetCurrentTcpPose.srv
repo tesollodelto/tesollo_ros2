@@ -1,0 +1,8 @@
+# GetCurrentTcpPose service
+# Retrieves the TCP coordinates of the current gripper
+
+# Request (empty)
+---
+# Response
+float32[30] current_tcp  # Current TCP coordinates for all fingers (6 values * 5 fingers)
+int32 result  # DG_RESULT enum value

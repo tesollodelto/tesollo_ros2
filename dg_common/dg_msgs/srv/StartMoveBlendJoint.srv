@@ -1,0 +1,8 @@
+# StartMoveBlendJoint service
+# Performs a blend motion with the entered blend number
+
+# Request
+int32 blend_number  # Enter a Blend Motion Number
+---
+# Response
+int32 result  # DG_RESULT enum value

@@ -1,0 +1,8 @@
+# UpdateRecipeCurrentPoseData service
+# Saves the current gripper joint position information and action time to recipe
+
+# Request
+int32 pose_number  # Recipe Pose Number
+---
+# Response
+int32 result  # DG_RESULT enum value

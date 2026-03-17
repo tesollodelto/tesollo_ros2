@@ -1,0 +1,8 @@
+# MoveServoJoint service
+# Performs real-time position movement for all joints (Developer Mode only)
+
+# Request
+float32[20] target_joint  # Enter the target position values (in degrees) for all joints
+---
+# Response
+int32 result  # DG_RESULT enum value

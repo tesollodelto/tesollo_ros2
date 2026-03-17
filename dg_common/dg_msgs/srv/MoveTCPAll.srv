@@ -1,0 +1,8 @@
+# MoveTCPAll service
+# Control the TCP position of the entire gripper finger
+
+# Request
+float32[30] target_tcp  # Target Cartesian Coordinate Array for all fingers (6 values * 5 fingers)
+---
+# Response
+int32 result  # DG_RESULT enum value

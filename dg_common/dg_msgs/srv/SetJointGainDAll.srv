@@ -1,0 +1,8 @@
+# SetJointGainDAll service
+# Sets the D Gain value for all joints
+
+# Request
+float32[20] gain_d  # Enter D Gain for all joints
+---
+# Response
+int32 result  # DG_RESULT enum value

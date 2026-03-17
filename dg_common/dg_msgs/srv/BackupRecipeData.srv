@@ -1,0 +1,8 @@
+# BackupRecipeData service
+# Backup Settings to PC
+
+# Request
+string path  # Enter the save path
+---
+# Response
+int32 result  # DG_RESULT enum value
