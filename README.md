@@ -7,7 +7,8 @@ Delto Gripper ROS 2 packages for Tesollo's robotic grippers.
 This repository uses a **per-model submodule** structure with shared common packages:
 
 - Each gripper model (`dg3f_b`, `dg3f_m`, `dg4f`, `dg5f`, `dg5fs`) has its own independent repository, included here as a git submodule.
-- `dg_common` provides shared packages (hardware interface, messages, TCP communication) used across all models.
+- Shared packages are also managed as submodules: `dg_tcp_comm` (TCP communication), `dg_hardware` (ros2_control hardware interface).
+- `dg_common` provides shared message definitions (`dg_msgs`) used across all models.
 - `dg_sdk_ros2_bridge` bridges the Delto SDK with ROS 2.
 
 ### Why this structure?
@@ -42,10 +43,12 @@ tesollo_ros2/
 ├── dg5f_s_ros2/          # [submodule] DG-5FS (S model, separate product)
 │   └── dg5f_s_description/
 │
+├── dg_tcp_comm/          # [submodule] TCP communication library
+│
+├── dg_hardware/          # [submodule] ros2_control hardware interface
+│
 ├── dg_common/            # Shared packages (included directly)
-│   ├── dg_hardware/          # ros2_control hardware interface
-│   ├── dg_msgs/              # Custom messages / services
-│   └── dg_tcp_comm/          # TCP communication library
+│   └── dg_msgs/              # Custom messages / services
 │
 └── dg_sdk_ros2_bridge/   # Delto SDK ↔ ROS 2 bridge (included directly)
 ```
@@ -60,7 +63,7 @@ git clone --recursive https://github.com/tesollodelto/tesollo_ros2.git
 
 ### Single model only
 
-Clone the repo and initialize only the submodule you need. `dg_common` and `dg_sdk_ros2_bridge` are always included.
+Clone the repo and initialize only the submodule you need. `dg_common`, `dg_sdk_ros2_bridge`, `dg_tcp_comm`, and `dg_hardware` are always needed, so initialize them along with your model submodule.
 
 > **Note:** Other model folders (e.g. `dg3f_b_ros2/`, `dg4f_ros2/`) will appear as empty directories. This is normal git submodule behavior — they take no disk space and are ignored by `colcon build`.
 
@@ -68,35 +71,35 @@ Clone the repo and initialize only the submodule you need. `dg_common` and `dg_s
 ```bash
 git clone https://github.com/tesollodelto/tesollo_ros2.git
 cd tesollo_ros2
-git submodule update --init dg3f_b_ros2
+git submodule update --init dg3f_b_ros2 dg_tcp_comm dg_hardware
 ```
 
 **DG-3F (M type)**
 ```bash
 git clone https://github.com/tesollodelto/tesollo_ros2.git
 cd tesollo_ros2
-git submodule update --init dg3f_m_ros2
+git submodule update --init dg3f_m_ros2 dg_tcp_comm dg_hardware
 ```
 
 **DG-4F**
 ```bash
 git clone https://github.com/tesollodelto/tesollo_ros2.git
 cd tesollo_ros2
-git submodule update --init dg4f_ros2
+git submodule update --init dg4f_ros2 dg_tcp_comm dg_hardware
 ```
 
 **DG-5F**
 ```bash
 git clone https://github.com/tesollodelto/tesollo_ros2.git
 cd tesollo_ros2
-git submodule update --init dg5f_ros2
+git submodule update --init dg5f_ros2 dg_tcp_comm dg_hardware
 ```
 
 **DG-5FS (S model)**
 ```bash
 git clone https://github.com/tesollodelto/tesollo_ros2.git
 cd tesollo_ros2
-git submodule update --init dg5f_s_ros2
+git submodule update --init dg5f_s_ros2 dg_tcp_comm dg_hardware
 ```
 
 ## License
