@@ -60,7 +60,7 @@ git clone --recursive https://github.com/tesollodelto/tesollo_ros2.git
 
 ### Single model only
 
-Clone the repo and initialize only the submodule you need. `dg_common` 내의 서브모듈(`dg_tcp_comm`, `dg_hardware`)도 함께 초기화해야 합니다.
+Clone the repo and initialize only the submodule you need. You must also initialize the shared submodules under `dg_common` (`dg_tcp_comm`, `dg_hardware`).
 
 > **Note:** Other model folders (e.g. `dg3f_b_ros2/`, `dg4f_ros2/`) will appear as empty directories. This is normal git submodule behavior — they take no disk space and are ignored by `colcon build`.
 
