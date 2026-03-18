@@ -62,6 +62,8 @@ git clone --recursive https://github.com/tesollodelto/tesollo_ros2.git
 
 Clone the repo and initialize only the submodule you need. `dg_common` and `dg_sdk_ros2_bridge` are always included.
 
+> **Note:** Other model folders (e.g. `dg3f_b_ros2/`, `dg4f_ros2/`) will appear as empty directories. This is normal git submodule behavior — they take no disk space and are ignored by `colcon build`.
+
 **DG-3F (B type)**
 ```bash
 git clone https://github.com/tesollodelto/tesollo_ros2.git
