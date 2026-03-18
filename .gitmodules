@@ -13,9 +13,9 @@
 [submodule "dg5f_s_ros2"]
 	path = dg5f_s_ros2
 	url = https://github.com/tesollodelto/dg5f_s_ros2.git
-[submodule "dg_tcp_comm"]
-	path = dg_tcp_comm
+[submodule "dg_common/dg_tcp_comm"]
+	path = dg_common/dg_tcp_comm
 	url = https://github.com/tesollodelto/dg_tcp_comm
-[submodule "dg_hardware"]
-	path = dg_hardware
+[submodule "dg_common/dg_hardware"]
+	path = dg_common/dg_hardware
 	url = https://github.com/tesollodelto/dg_hardware
