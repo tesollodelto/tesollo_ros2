@@ -1,7 +1,0 @@
-# SystemStart service
-# Start the system
-
-# Request (empty)
----
-# Response
-int32 result  # DG_RESULT enum value

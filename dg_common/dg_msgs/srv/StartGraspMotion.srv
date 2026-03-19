@@ -1,8 +1,0 @@
-# StartGraspMotion service
-# Perform a grasp motion
-
-# Request
-int32 is_grasp  # Setting up grasp motion performance
----
-# Response
-int32 result  # DG_RESULT enum value

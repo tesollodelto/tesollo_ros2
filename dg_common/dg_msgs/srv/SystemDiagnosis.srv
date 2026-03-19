@@ -1,7 +1,0 @@
-# SystemDiagnosis service
-# Run the gripper self-diagnostics
-
-# Request (empty)
----
-# Response
-int32 result  # DG_RESULT enum value
