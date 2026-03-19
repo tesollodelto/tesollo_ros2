@@ -1,14 +1,28 @@
-# tesollo_ros2
-
-Delto Gripper ROS 2 packages for Tesollo's robotic grippers.
+<div align="center">
+  <img src="doc/source/_static/title.svg" alt="tesollo_ros2" width="600" />
+  <p>
+    Delto Gripper ROS 2 Packages for Tesollo's Robotic Grippers
+  </p>
+  <p>
+    <a href="https://github.com/tesollodelto/tesollo_ros2">
+      <img src="https://img.shields.io/badge/GitHub-tesollo__ros2-181717?logo=github" alt="GitHub" />
+    </a>
+    <img src="https://img.shields.io/badge/ROS_2-Humble-blue?logo=ros" alt="ROS 2 Humble" />
+    <img src="https://img.shields.io/badge/Ubuntu-22.04-E95420?logo=ubuntu&logoColor=white" alt="Ubuntu 22.04" />
+    <img src="https://img.shields.io/badge/License-BSD--3--Clause-green" alt="License" />
+  </p>
+  <p>
+    <a href="https://tesollodelto.github.io/tesollo_ros2/"><strong>📖 Documentation</strong></a>
+  </p>
+</div>
 
 ## Architecture
 
 This repository uses a **per-model submodule** structure with shared common packages:
 
 - Each gripper model (`dg3f_b`, `dg3f_m`, `dg4f`, `dg5f`, `dg5fs`) has its own independent repository, included here as a git submodule.
-- `dg_common` contains shared packages: `dg_msgs` (messages, included directly), `dg_tcp_comm` and `dg_hardware` (managed as submodules).
-- `dg_sdk_ros2_bridge` bridges the Delto SDK with ROS 2.
+- `dg_common` contains shared packages: `dg_tcp_comm` and `dg_hardware` (managed as submodules).
+- `dg_sdk_ros2_bridge` bridges the Delto SDK with ROS 2, and includes `dg_msgs` (message/service definitions).
 
 ### Why this structure?
 
@@ -44,10 +58,11 @@ tesollo_ros2/
 │
 ├── dg_common/            # Shared packages
 │   ├── dg_hardware/          # [submodule] ros2_control hardware interface
-│   ├── dg_msgs/              # Custom messages / services
 │   └── dg_tcp_comm/          # [submodule] TCP communication library
 │
-└── dg_sdk_ros2_bridge/   # Delto SDK ↔ ROS 2 bridge (included directly)
+└── dg_sdk_ros2_bridge/   # [submodule] Delto SDK ↔ ROS 2 bridge
+    ├── dg_msgs/              # Custom messages / services
+    └── dg_sdk_ros2_bridge/   # Bridge node
 ```
 
 ## Clone
