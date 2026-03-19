@@ -32,6 +32,7 @@ exclude_patterns = []
 # HTML theme (furo: modern, clean, dark mode support)
 html_theme = "furo"
 html_static_path = ["_static"]
+html_css_files = ["custom.css"]
 html_title = "tesollo_ros2"
 html_theme_options = {
     "sidebar_hide_name": False,
