@@ -1,5 +1,9 @@
 # DG-3F (B Type)
 
+```{warning}
+This model has been **discontinued**. This page is kept for reference only.
+```
+
 3-finger gripper, basic model.
 
 ## Specifications

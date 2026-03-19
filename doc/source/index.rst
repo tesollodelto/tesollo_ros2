@@ -14,10 +14,10 @@ Delto Gripper ROS 2 packages for Tesollo's robotic grippers.
    :maxdepth: 2
    :caption: Gripper Models
 
-   grippers/dg3f_b
    grippers/dg3f_m
    grippers/dg4f
    grippers/dg5f
+   grippers/dg3f_b
 
 .. toctree::
    :maxdepth: 2

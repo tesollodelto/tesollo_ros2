@@ -6,13 +6,13 @@
 
 ## Model Capabilities
 
-| Model | ID | Fingers | Joints | F/T Sensor | GPIO |
-|-------|----|---------|--------|------------|------|
-| DG-3F-B | `0x3F01` | 3 | 12 | No | Yes |
-| DG-3F-M | `0x3F02` | 3 | 12 | Yes | Yes |
-| DG-4F | `0x4F02` | 4 | 18 | Yes | Yes |
-| DG-5F-L | `0x5F12` | 5 | 20 | Yes | Yes |
-| DG-5F-R | `0x5F22` | 5 | 20 | Yes | Yes |
+| Model | ID | Fingers | Joints | F/T Sensor | GPIO | Note |
+|-------|----|---------|--------|------------|------|------|
+| ~~DG-3F-B~~ | `0x3F01` | 3 | 12 | No | Yes | *Discontinued* |
+| DG-3F-M | `0x3F02` | 3 | 12 | Yes | Yes | |
+| DG-4F | `0x4F02` | 4 | 18 | Yes | Yes | |
+| DG-5F-L | `0x5F12` | 5 | 20 | Yes | Yes | |
+| DG-5F-R | `0x5F22` | 5 | 20 | Yes | Yes | |
 
 ## Control Flow
 
