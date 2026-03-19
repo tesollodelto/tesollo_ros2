@@ -32,7 +32,7 @@ exclude_patterns = []
 # HTML theme (furo: modern, clean, dark mode support)
 html_theme = "furo"
 html_static_path = ["_static"]
-html_title = "Delto Gripper ROS 2"
+html_title = "tesollo_ros2"
 html_theme_options = {
     "sidebar_hide_name": False,
     "navigation_with_keys": True,
