@@ -17,8 +17,12 @@ tesollo_ros2/
 
 ## Two Integration Paths
 
+The gripper accepts only one TCP connection at a time. Choose **one** of the two paths below — they cannot be used simultaneously.
+
+### Option A: ros2_control (Recommended)
+
 ```{graphviz}
-digraph G {
+digraph A {
     rankdir=LR;
     node [shape=box, style=filled, fillcolor="#E8F0FE"];
 
@@ -28,13 +32,26 @@ digraph G {
     TCP [label="dg_tcp_comm"];
     FW [label="Gripper\nFirmware", fillcolor="#E8F5E9"];
 
-    Bridge [label="dg_sdk_ros2_bridge"];
-    SDK [label="DG SDK\n(libDGSDK.so)"];
-
     User -> RC [label="effort commands"];
     RC -> HW;
     HW -> TCP [label="TCP protocol"];
     TCP -> FW;
+}
+```
+
+Best for: MoveIt integration, standard ROS 2 control pipelines.
+
+### Option B: SDK Bridge
+
+```{graphviz}
+digraph B {
+    rankdir=LR;
+    node [shape=box, style=filled, fillcolor="#E8F0FE"];
+
+    User [label="User Application", fillcolor="#FFF3E0"];
+    Bridge [label="dg_sdk_ros2_bridge"];
+    SDK [label="DG SDK\n(libDGSDK.so)"];
+    FW [label="Gripper\nFirmware", fillcolor="#E8F5E9"];
 
     User -> Bridge [label="services / topics"];
     Bridge -> SDK;
@@ -42,17 +59,11 @@ digraph G {
 }
 ```
 
-### Path 1: ros2_control (Recommended)
-
-`User` → `ros2_control` → `delto_hardware` → `dg_tcp_comm` → `Gripper`
-
-Best for: MoveIt integration, standard ROS 2 control pipelines.
-
-### Path 2: SDK Bridge
-
-`User` → `dg_sdk_ros2_bridge` → `DG SDK` → `Gripper`
-
 Best for: Direct SDK access, recipe management, advanced configuration.
+
+```{note}
+Both paths communicate with the gripper over TCP. Since the gripper only accepts a single connection, you must choose one path per gripper instance. Running both simultaneously will cause connection errors.
+```
 
 ## Submodule Strategy
 
