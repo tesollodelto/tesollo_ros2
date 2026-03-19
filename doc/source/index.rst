@@ -73,14 +73,16 @@ Quick Start
 
 .. code-block:: bash
 
-   # Clone
-   git clone --recursive https://github.com/tesollodelto/tesollo_ros2.git
+   # Clone (example: DG-5F left hand)
+   git clone https://github.com/tesollodelto/tesollo_ros2.git
+   cd tesollo_ros2
+   git submodule update --init dg5f_ros2 dg_sdk_ros2_bridge dg_common/dg_tcp_comm dg_common/dg_hardware
 
    # Build
    cd ~/ros2_ws && colcon build --symlink-install && source install/setup.bash
 
-   # Launch (example: DG-5F)
-   ros2 launch dg5f_driver dg5f.launch.py
+   # Launch
+   ros2 launch dg5f_driver dg5f_left_driver.launch.py
 
 .. raw:: html
 

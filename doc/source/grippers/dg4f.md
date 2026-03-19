@@ -21,7 +21,7 @@
 ## Launch
 
 ```bash
-ros2 launch dg4f_driver dg4f.launch.py
+ros2 launch dg4f_driver dg4f_driver.launch.py
 ```
 
 ## Note

@@ -21,7 +21,7 @@
 ## Launch
 
 ```bash
-ros2 launch dg3f_m_driver dg3f_m.launch.py
+ros2 launch dg3f_m_driver dg3f_m_driver.launch.py
 ```
 
 ## Firmware Note

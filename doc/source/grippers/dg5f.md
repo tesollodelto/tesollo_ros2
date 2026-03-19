@@ -23,15 +23,15 @@
 
 ```bash
 # Left hand
-ros2 launch dg5f_driver dg5f.launch.py hand_type:=left
+ros2 launch dg5f_driver dg5f_left_driver.launch.py
 
 # Right hand
-ros2 launch dg5f_driver dg5f.launch.py hand_type:=right
+ros2 launch dg5f_driver dg5f_right_driver.launch.py
 ```
 
 ## Hand Type
 
-The `hand_type` parameter determines the motor direction mapping. Left and right hands have different motor direction arrays.
+Left and right hands have different motor direction arrays and separate launch files.
 
 ## Firmware Note
 

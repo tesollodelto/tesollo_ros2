@@ -24,7 +24,7 @@ This model has been **discontinued**. This page is kept for reference only.
 ## Launch
 
 ```bash
-ros2 launch dg3f_b_driver dg3f_b.launch.py
+ros2 launch dg3f_b_driver dg3f_b_driver.launch.py
 ```
 
 ## Firmware Note

@@ -6,16 +6,19 @@ Each gripper model provides a launch file for `ros2_control`:
 
 ```bash
 # DG-5F (left hand)
-ros2 launch dg5f_driver dg5f.launch.py
+ros2 launch dg5f_driver dg5f_left_driver.launch.py
+
+# DG-5F (right hand)
+ros2 launch dg5f_driver dg5f_right_driver.launch.py
 
 # DG-4F
-ros2 launch dg4f_driver dg4f.launch.py
+ros2 launch dg4f_driver dg4f_driver.launch.py
 
 # DG-3F (M type)
-ros2 launch dg3f_m_driver dg3f_m.launch.py
+ros2 launch dg3f_m_driver dg3f_m_driver.launch.py
 
-# DG-3F (B type)
-ros2 launch dg3f_b_driver dg3f_b.launch.py
+# DG-3F (B type, discontinued)
+ros2 launch dg3f_b_driver dg3f_b_driver.launch.py
 ```
 
 ## Verify Connection
