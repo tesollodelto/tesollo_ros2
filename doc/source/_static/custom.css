@@ -3,3 +3,13 @@
     font-size: 1.3em !important;
     letter-spacing: -0.02em;
 }
+
+body[data-theme="dark"] .title-banner {
+    filter: invert(1);
+}
+
+@media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) .title-banner {
+        filter: invert(1);
+    }
+}

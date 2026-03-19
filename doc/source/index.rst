@@ -1,7 +1,7 @@
 .. raw:: html
 
    <div align="center" style="margin-bottom: 2em;">
-     <img src="_static/title.svg" alt="tesollo_ros2" style="max-width: 600px; width: 100%;" />
+     <img class="title-banner" src="_static/title.svg" alt="tesollo_ros2" style="max-width: 600px; width: 100%;" />
      <p style="font-size: 1.2em; color: #666; margin-top: 0.5em;">
        Delto Gripper ROS 2 Packages for Tesollo's Robotic Grippers
      </p>
