@@ -35,7 +35,7 @@ html_static_path = ["_static"]
 html_css_files = ["custom.css"]
 html_title = "tesollo_ros2"
 html_theme_options = {
-    "sidebar_hide_name": False,
+    "sidebar_hide_name": True,
     "navigation_with_keys": True,
     "footer_icons": [
         {

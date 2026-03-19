@@ -1,7 +1,41 @@
+.sidebar-brand {
+    text-decoration: none !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 0.5em 0.5em;
+}
+
+.sidebar-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8em;
+    margin-bottom: 0.5em;
+}
+
+.sidebar-logo-tesollo {
+    height: 50px;
+}
+
+.sidebar-logo-ros2 {
+    height: 36px;
+}
+
 .sidebar-brand-text {
     font-weight: 900 !important;
     font-size: 1.5em !important;
     letter-spacing: -0.03em;
+}
+
+body[data-theme="dark"] .sidebar-logo-ros2 {
+    filter: brightness(0) invert(1);
+}
+
+@media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) .sidebar-logo-ros2 {
+        filter: brightness(0) invert(1);
+    }
 }
 
 body[data-theme="dark"] .title-banner {
