@@ -24,17 +24,33 @@
 
 ## Launch
 
+**Hardware driver**
+
 ```bash
-# RViz display
-ros2 launch dg4f_description dg4f_display.launch.py
-
-# Hardware driver
 ros2 launch dg4f_driver dg4f_driver.launch.py
+```
 
-# Effort controller
+With custom IP/port:
+
+```bash
+ros2 launch dg4f_driver dg4f_driver.launch.py delto_ip:=192.168.1.100 delto_port:=502
+```
+
+**Effort controller**
+
+```bash
 ros2 launch dg4f_driver dg4f_effort_controller.launch.py
+```
 
-# Gazebo simulation
+**RViz display**
+
+```bash
+ros2 launch dg4f_description dg4f_display.launch.py
+```
+
+**Gazebo simulation**
+
+```bash
 ros2 launch dg4f_gz dg4f_gz.launch.py
 ```
 

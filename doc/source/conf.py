@@ -12,7 +12,12 @@ extensions = [
     "sphinx.ext.graphviz",
     "sphinx.ext.todo",
     "myst_parser",
+    "sphinx_copybutton",
 ]
+
+# Copy button settings
+copybutton_prompt_text = r"^\$ "
+copybutton_prompt_is_regexp = True
 
 # MyST (Markdown) settings
 myst_enable_extensions = [

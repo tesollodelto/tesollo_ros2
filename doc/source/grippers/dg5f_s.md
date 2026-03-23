@@ -40,41 +40,91 @@ Supports both **20-DOF** and **15-DOF** configurations.
 
 ### 20-DOF
 
+**Hardware driver**
+
 ```bash
-# Hardware driver
 ros2 launch dg5f_s_driver dg5f_s_right_driver.launch.py
+```
+
+```bash
 ros2 launch dg5f_s_driver dg5f_s_left_driver.launch.py
+```
 
-# Effort controller
+With custom IP/port:
+
+```bash
+ros2 launch dg5f_s_driver dg5f_s_right_driver.launch.py delto_ip:=192.168.1.100 delto_port:=502
+```
+
+**Effort controller**
+
+```bash
 ros2 launch dg5f_s_driver dg5f_s_right_effort_controller.launch.py
+```
+
+```bash
 ros2 launch dg5f_s_driver dg5f_s_left_effort_controller.launch.py
+```
 
-# RViz display
+**RViz display**
+
+```bash
 ros2 launch dg5f_s_description dg5f_s_right_display.launch.py
-ros2 launch dg5f_s_description dg5f_s_left_display.launch.py
+```
 
-# Gazebo simulation
+```bash
+ros2 launch dg5f_s_description dg5f_s_left_display.launch.py
+```
+
+**Gazebo simulation**
+
+```bash
 ros2 launch dg5f_s_gz dg5f_s_right_gz.launch.py
+```
+
+```bash
 ros2 launch dg5f_s_gz dg5f_s_left_gz.launch.py
 ```
 
 ### 15-DOF
 
+**Hardware driver**
+
 ```bash
-# Hardware driver
 ros2 launch dg5f_s_driver dg5f_s_15dof_right_driver.launch.py
+```
+
+```bash
 ros2 launch dg5f_s_driver dg5f_s_15dof_left_driver.launch.py
+```
 
-# Effort controller
+**Effort controller**
+
+```bash
 ros2 launch dg5f_s_driver dg5f_s_15dof_right_effort_controller.launch.py
+```
+
+```bash
 ros2 launch dg5f_s_driver dg5f_s_15dof_left_effort_controller.launch.py
+```
 
-# RViz display
+**RViz display**
+
+```bash
 ros2 launch dg5f_s_description dg5f_s_15dof_right_display.launch.py
-ros2 launch dg5f_s_description dg5f_s_15dof_left_display.launch.py
+```
 
-# Gazebo simulation
+```bash
+ros2 launch dg5f_s_description dg5f_s_15dof_left_display.launch.py
+```
+
+**Gazebo simulation**
+
+```bash
 ros2 launch dg5f_s_gz dg5f_s_15dof_right_gz.launch.py
+```
+
+```bash
 ros2 launch dg5f_s_gz dg5f_s_15dof_left_gz.launch.py
 ```
 

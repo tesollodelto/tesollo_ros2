@@ -9,21 +9,29 @@
 
 Install `ros2_control` packages:
 
-```bash
-# Humble
-sudo apt install ros-humble-ros2-control ros-humble-ros2-controllers
+**Humble**
 
-# Jazzy
+```bash
+sudo apt install ros-humble-ros2-control ros-humble-ros2-controllers
+```
+
+**Jazzy**
+
+```bash
 sudo apt install ros-jazzy-ros2-control ros-jazzy-ros2-controllers
 ```
 
-For Gazebo simulation, also install:
+For Gazebo simulation:
+
+**Humble**
 
 ```bash
-# Humble
 sudo apt install ros-humble-ros-gz
+```
 
-# Jazzy
+**Jazzy**
+
+```bash
 sudo apt install ros-jazzy-ros-gz
 ```
 
@@ -48,17 +56,23 @@ cd tesollo_ros2
 
 Then initialize the submodules for your model:
 
+**DG-5F**
 ```bash
-# DG-5F
 git submodule update --init dg5f_ros2 dg_common/dg_tcp_comm dg_common/dg_hardware
+```
 
-# DG-5F-S
+**DG-5F-S**
+```bash
 git submodule update --init dg5f_s_ros2 dg_common/dg_tcp_comm dg_common/dg_hardware
+```
 
-# DG-4F
+**DG-4F**
+```bash
 git submodule update --init dg4f_ros2 dg_common/dg_tcp_comm dg_common/dg_hardware
+```
 
-# DG-3F-M
+**DG-3F-M**
+```bash
 git submodule update --init dg3f_m_ros2 dg_common/dg_tcp_comm dg_common/dg_hardware
 ```
 
@@ -82,14 +96,10 @@ git clone https://github.com/tesollodelto/dg_tcp_comm.git
 ```bash
 cd ~/ros2_ws
 colcon build --symlink-install
-source install/setup.bash
 ```
 
-To build only a specific model:
-
 ```bash
-# Example: DG-5F only
-colcon build --packages-select dg5f_description dg5f_driver dg5f_gz delto_hardware delto_tcp_comm
+source install/setup.bash
 ```
 
 ## Network Configuration
@@ -104,7 +114,6 @@ The gripper communicates over TCP/IP. Configure your network interface to match 
 Set a static IP on the connected interface:
 
 ```bash
-# Example: set 169.254.186.1 on eth0
 sudo ip addr add 169.254.186.1/16 dev eth0
 ```
 
@@ -112,4 +121,25 @@ Verify connectivity:
 
 ```bash
 ping 169.254.186.72
+```
+
+### Custom IP / Port
+
+To use a different gripper IP or port, edit the URDF xacro hardware parameters:
+
+```xml
+<ros2_control name="DeltoGripperSystem" type="system">
+  <hardware>
+    <plugin>delto_hardware/SystemInterface</plugin>
+    <param name="delto_ip">169.254.186.72</param>
+    <param name="delto_port">502</param>
+  </hardware>
+  ...
+</ros2_control>
+```
+
+Or pass them as launch arguments (if the launch file supports it):
+
+```bash
+ros2 launch dg5f_driver dg5f_right_driver.launch.py delto_ip:=192.168.1.100 delto_port:=502
 ```

@@ -25,26 +25,63 @@
 
 ## Launch
 
+**Hardware driver**
+
 ```bash
-# RViz display
-ros2 launch dg5f_description dg5f_right_display.launch.py
-ros2 launch dg5f_description dg5f_left_display.launch.py
-
-# Hardware driver
 ros2 launch dg5f_driver dg5f_right_driver.launch.py
+```
+
+```bash
 ros2 launch dg5f_driver dg5f_left_driver.launch.py
+```
 
-# Effort controller
+With custom IP/port:
+
+```bash
+ros2 launch dg5f_driver dg5f_right_driver.launch.py delto_ip:=192.168.1.100 delto_port:=502
+```
+
+**Effort controller**
+
+```bash
 ros2 launch dg5f_driver dg5f_right_effort_controller.launch.py
+```
+
+```bash
 ros2 launch dg5f_driver dg5f_left_effort_controller.launch.py
+```
 
-# PID controller
+**PID controller**
+
+```bash
 ros2 launch dg5f_driver dg5f_right_pid_controller.launch.py
-ros2 launch dg5f_driver dg5f_left_pid_controller.launch.py
+```
 
-# Gazebo simulation
+```bash
+ros2 launch dg5f_driver dg5f_left_pid_controller.launch.py
+```
+
+**RViz display**
+
+```bash
+ros2 launch dg5f_description dg5f_right_display.launch.py
+```
+
+```bash
+ros2 launch dg5f_description dg5f_left_display.launch.py
+```
+
+**Gazebo simulation**
+
+```bash
 ros2 launch dg5f_gz dg5f_right_gz.launch.py
+```
+
+```bash
 ros2 launch dg5f_gz dg5f_left_gz.launch.py
+```
+
+```bash
 ros2 launch dg5f_gz dg5f_both_gz.launch.py
 ```
 
