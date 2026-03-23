@@ -51,7 +51,7 @@ Product Lineup
          <img src="_static/DG-3F-M.webp" alt="DG-3F-M" style="width: 160px; height: 160px; object-fit: contain; border: 1px solid #ddd; border-radius: 12px; padding: 8px;" />
        </a>
        <p style="margin-top: 0.5em; font-weight: bold;">DG-3F-M</p>
-       <p style="font-size: 0.85em; color: #888;">3-Finger w/ F/T Sensor</p>
+       <p style="font-size: 0.85em; color: #888;">3-Finger Gripper</p>
      </div>
 
      <div style="text-align: center; width: 180px;">
