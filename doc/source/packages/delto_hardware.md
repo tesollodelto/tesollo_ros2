@@ -1,5 +1,7 @@
 # delto_hardware
 
+[![CI](https://github.com/tesollodelto/dg_hardware/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg_hardware/actions/workflows/ci.yml)
+
 Unified `ros2_control` hardware interface for all Delto gripper models.
 
 ## Overview

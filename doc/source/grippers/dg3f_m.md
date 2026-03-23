@@ -1,5 +1,7 @@
 # DG-3F (M Type)
 
+[![CI](https://github.com/tesollodelto/dg3f_m_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg3f_m_ros2/actions/workflows/ci.yml)
+
 3-finger gripper with fingertip force/torque sensors.
 
 ## Specifications

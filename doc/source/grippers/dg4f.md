@@ -1,5 +1,7 @@
 # DG-4F
 
+[![CI](https://github.com/tesollodelto/dg4f_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg4f_ros2/actions/workflows/ci.yml)
+
 4-finger gripper with fingertip force/torque sensors.
 
 ## Specifications

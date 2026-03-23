@@ -1,5 +1,7 @@
 # DG-3F (B Type)
 
+[![CI](https://github.com/tesollodelto/dg3f_b_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg3f_b_ros2/actions/workflows/ci.yml)
+
 ```{warning}
 This model has been **discontinued**. This page is kept for reference only.
 ```

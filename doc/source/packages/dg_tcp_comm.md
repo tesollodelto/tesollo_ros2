@@ -1,5 +1,7 @@
 # dg_tcp_comm
 
+[![CI](https://github.com/tesollodelto/dg_tcp_comm/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg_tcp_comm/actions/workflows/ci.yml)
+
 Unified TCP communication library for all Delto grippers.
 
 ## Overview

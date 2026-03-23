@@ -1,5 +1,7 @@
 # DG-5F
 
+[![CI](https://github.com/tesollodelto/dg5f_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg5f_ros2/actions/workflows/ci.yml)
+
 5-finger robotic hand with fingertip force/torque sensors. Available in left and right hand variants.
 
 ## Specifications

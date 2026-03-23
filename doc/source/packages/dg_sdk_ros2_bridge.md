@@ -1,5 +1,7 @@
 # dg_sdk_ros2_bridge
 
+[![CI](https://github.com/tesollodelto/dg_sdk_ros2_bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg_sdk_ros2_bridge/actions/workflows/ci.yml)
+
 ROS 2 bridge for the Delto Gripper SDK (DG SDK).
 
 ## Overview
