@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/tesollodelto/dg5f_s_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg5f_s_ros2/actions/workflows/ci.yml)
 
-5-finger robotic hand, compact version with fingertip force/torque sensors. Available in left and right hand variants.
+5-finger robotic hand, small version with fingertip force/torque sensors. Available in left and right hand variants.
 
 Supports both **20-DOF** and **15-DOF** configurations.
 

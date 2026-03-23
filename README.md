@@ -23,7 +23,7 @@
 | Package | Description | Build |
 |---|---|---|
 | [dg5f_ros2](https://github.com/tesollodelto/dg5f_ros2) | DG-5F 5-finger hand | [![CI](https://github.com/tesollodelto/dg5f_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg5f_ros2/actions/workflows/ci.yml) |
-| [dg5f_s_ros2](https://github.com/tesollodelto/dg5f_s_ros2) | DG-5F-S compact hand | [![CI](https://github.com/tesollodelto/dg5f_s_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg5f_s_ros2/actions/workflows/ci.yml) |
+| [dg5f_s_ros2](https://github.com/tesollodelto/dg5f_s_ros2) | DG-5F-S small hand | [![CI](https://github.com/tesollodelto/dg5f_s_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg5f_s_ros2/actions/workflows/ci.yml) |
 | [dg4f_ros2](https://github.com/tesollodelto/dg4f_ros2) | DG-4F 4-finger gripper | [![CI](https://github.com/tesollodelto/dg4f_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg4f_ros2/actions/workflows/ci.yml) |
 | [dg3f_m_ros2](https://github.com/tesollodelto/dg3f_m_ros2) | DG-3F-M 3-finger gripper | [![CI](https://github.com/tesollodelto/dg3f_m_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg3f_m_ros2/actions/workflows/ci.yml) |
 | [dg3f_b_ros2](https://github.com/tesollodelto/dg3f_b_ros2) | DG-3F-B 3-finger (discontinued) | [![CI](https://github.com/tesollodelto/dg3f_b_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg3f_b_ros2/actions/workflows/ci.yml) |
@@ -73,7 +73,7 @@ tesollo_ros2/
 │   ├── dg5f_driver/
 │   └── dg5f_gz/
 │
-├── dg5f_s_ros2/          # [submodule] DG-5F-S compact hand (20-DOF / 15-DOF)
+├── dg5f_s_ros2/          # [submodule] DG-5F-S small hand (20-DOF / 15-DOF)
 │   ├── dg5f_s_description/
 │   ├── dg5f_s_driver/
 │   └── dg5f_s_gz/
@@ -101,41 +101,26 @@ Clone the repo and initialize only the submodule you need. You must also initial
 
 > **Note:** Other model folders (e.g. `dg3f_b_ros2/`, `dg4f_ros2/`) will appear as empty directories. This is normal git submodule behavior — they take no disk space and are ignored by `colcon build`.
 
-**DG-3F (B type)**
 ```bash
 git clone https://github.com/tesollodelto/tesollo_ros2.git
 cd tesollo_ros2
-git submodule update --init dg3f_b_ros2 dg_common/dg_tcp_comm dg_common/dg_hardware
+
+# Pick one:
+git submodule update --init dg5f_ros2   dg_common/dg_tcp_comm dg_common/dg_hardware  # DG-5F
+git submodule update --init dg5f_s_ros2 dg_common/dg_tcp_comm dg_common/dg_hardware  # DG-5F-S
+git submodule update --init dg4f_ros2   dg_common/dg_tcp_comm dg_common/dg_hardware  # DG-4F
+git submodule update --init dg3f_m_ros2 dg_common/dg_tcp_comm dg_common/dg_hardware  # DG-3F-M
+git submodule update --init dg3f_b_ros2 dg_common/dg_tcp_comm dg_common/dg_hardware  # DG-3F-B
 ```
 
-**DG-3F (M type)**
-```bash
-git clone https://github.com/tesollodelto/tesollo_ros2.git
-cd tesollo_ros2
-git submodule update --init dg3f_m_ros2 dg_common/dg_tcp_comm dg_common/dg_hardware
-```
+## Build
 
-**DG-4F**
 ```bash
-git clone https://github.com/tesollodelto/tesollo_ros2.git
-cd tesollo_ros2
-git submodule update --init dg4f_ros2 dg_common/dg_tcp_comm dg_common/dg_hardware
-```
-
-**DG-5F**
-```bash
-git clone https://github.com/tesollodelto/tesollo_ros2.git
-cd tesollo_ros2
-git submodule update --init dg5f_ros2 dg_common/dg_tcp_comm dg_common/dg_hardware
-```
-
-**DG-5FS (S model)**
-```bash
-git clone https://github.com/tesollodelto/tesollo_ros2.git
-cd tesollo_ros2
-git submodule update --init dg5f_s_ros2 dg_common/dg_tcp_comm dg_common/dg_hardware
+cd ~/ros2_ws
+colcon build --symlink-install
+source install/setup.bash
 ```
 
 ## License
 
-BSD-3-Clause - Copyright (c) 2025 Tesollo Inc.
+BSD-3-Clause - Copyright (c) 2025-2026 Tesollo Inc.

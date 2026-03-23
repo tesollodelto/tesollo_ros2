@@ -35,7 +35,7 @@ Product Lineup
          <img src="_static/DG-5F-S.webp" alt="DG-5F-S" style="width: 160px; height: 160px; object-fit: contain; border: 1px solid #ddd; border-radius: 12px; padding: 8px;" />
        </a>
        <p style="margin-top: 0.5em; font-weight: bold;">DG-5F-S</p>
-       <p style="font-size: 0.85em; color: #888;">5-Finger Compact</p>
+       <p style="font-size: 0.85em; color: #888;">5-Finger Small</p>
      </div>
 
      <div style="text-align: center; width: 180px;">
@@ -57,13 +57,13 @@ Product Lineup
      <div style="text-align: center; width: 180px;">
        <img src="_static/DG2F.webp" alt="DG-2F" style="width: 160px; height: 160px; object-fit: contain; border: 1px solid #ddd; border-radius: 12px; padding: 8px; opacity: 0.5;" />
        <p style="margin-top: 0.5em; font-weight: bold; color: #aaa;">DG-2F</p>
-       <p style="font-size: 0.85em; color: #aaa;">Coming Soon</p>
+       <p style="font-size: 0.85em; color: #aaa;">Not Supported</p>
      </div>
 
      <div style="text-align: center; width: 180px;">
        <img src="_static/DG-1F.webp" alt="DG-1F" style="width: 160px; height: 160px; object-fit: contain; border: 1px solid #ddd; border-radius: 12px; padding: 8px; opacity: 0.5;" />
        <p style="margin-top: 0.5em; font-weight: bold; color: #aaa;">DG-1F</p>
-       <p style="font-size: 0.85em; color: #aaa;">Coming Soon</p>
+       <p style="font-size: 0.85em; color: #aaa;">Not Supported</p>
      </div>
 
    </div>

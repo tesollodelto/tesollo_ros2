@@ -8,7 +8,7 @@ tesollo_ros2/
 ├── dg3f_m_ros2/          [submodule] DG-3F (M type)
 ├── dg4f_ros2/            [submodule] DG-4F
 ├── dg5f_ros2/            [submodule] DG-5F
-├── dg5f_s_ros2/          [submodule] DG-5F-S (20-DOF / 15-DOF)
+├── dg5f_s_ros2/          [submodule] DG-5F-S small hand (20-DOF / 15-DOF)
 ├── dg_common/
 │   ├── dg_hardware/      [submodule] ros2_control hardware interface
 │   └── dg_tcp_comm/      [submodule] TCP communication library
