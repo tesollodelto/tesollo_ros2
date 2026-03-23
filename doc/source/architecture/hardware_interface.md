@@ -13,15 +13,19 @@
 | DG-4F | `0x4F02` | 4 | 18 | Yes | Yes | |
 | DG-5F-L | `0x5F12` | 5 | 20 | Yes | Yes | |
 | DG-5F-R | `0x5F22` | 5 | 20 | Yes | Yes | |
+| DG-5F-S-L | `0x5F14` | 5 | 20 | Yes | Yes | |
+| DG-5F-S-R | `0x5F24` | 5 | 20 | Yes | Yes | |
+| DG-5F-S15-L | `0x5F34` | 5 | 15 | Yes | Yes | |
+| DG-5F-S15-R | `0x5F44` | 5 | 15 | Yes | Yes | |
 
 ## Control Flow
 
 ```
-on_init()     → Parse URDF params, connect via TCP, create services
-on_activate() → Verify connection
-read()        → Get joint/sensor/GPIO data, spin service callbacks
-write()       → Current control → duty conversion → send to gripper
-on_deactivate() → Disconnect
+on_init()       -> Parse URDF params, connect via TCP, create services
+on_activate()   -> Verify connection
+read()          -> Get joint/sensor/GPIO data, spin service callbacks
+write()         -> Current control -> duty conversion -> send to gripper
+on_deactivate() -> Disconnect
 ```
 
 ## Motor Direction & Firmware
@@ -34,3 +38,5 @@ Older firmware versions have different motor direction mappings. The hardware in
 | DG-3F-M | v2.8+ (revised) |
 | DG-4F | Always standard |
 | DG-5F | v2.8+ (revised) |
+| DG-5F-S | Always standard |
+| DG-5F-S15 | Always standard |

@@ -10,7 +10,7 @@
          <img src="https://img.shields.io/badge/GitHub-tesollo__ros2-181717?logo=github" alt="GitHub" />
        </a>
        <img src="https://img.shields.io/badge/ROS_2-Humble-blue?logo=ros" alt="ROS 2 Humble" />
-       <img src="https://img.shields.io/badge/Ubuntu-22.04-E95420?logo=ubuntu&logoColor=white" alt="Ubuntu 22.04" />
+       <img src="https://img.shields.io/badge/ROS_2-Jazzy-blue?logo=ros" alt="ROS 2 Jazzy" />
        <img src="https://img.shields.io/badge/License-BSD--3--Clause-green" alt="License" />
      </p>
    </div>
@@ -31,11 +31,11 @@ Product Lineup
      </div>
 
      <div style="text-align: center; width: 180px;">
-       <a href="grippers/dg5f.html">
+       <a href="grippers/dg5f_s.html">
          <img src="_static/DG-5F-S.webp" alt="DG-5F-S" style="width: 160px; height: 160px; object-fit: contain; border: 1px solid #ddd; border-radius: 12px; padding: 8px;" />
        </a>
        <p style="margin-top: 0.5em; font-weight: bold;">DG-5F-S</p>
-       <p style="font-size: 0.85em; color: #888;">5-Finger Short</p>
+       <p style="font-size: 0.85em; color: #888;">5-Finger Compact</p>
      </div>
 
      <div style="text-align: center; width: 180px;">
@@ -130,9 +130,10 @@ Quick Start
    :caption: Gripper Models
    :hidden:
 
-   grippers/dg3f_m
-   grippers/dg4f
    grippers/dg5f
+   grippers/dg5f_s
+   grippers/dg4f
+   grippers/dg3f_m
    grippers/dg3f_b
 
 .. toctree::

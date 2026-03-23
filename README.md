@@ -18,22 +18,29 @@
 
 ## CI Status
 
-| Package | Build |
-|---|---|
-| dg3f_b_ros2 | [![CI](https://github.com/tesollodelto/dg3f_b_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg3f_b_ros2/actions/workflows/ci.yml) |
-| dg3f_m_ros2 | [![CI](https://github.com/tesollodelto/dg3f_m_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg3f_m_ros2/actions/workflows/ci.yml) |
-| dg4f_ros2 | [![CI](https://github.com/tesollodelto/dg4f_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg4f_ros2/actions/workflows/ci.yml) |
-| dg5f_ros2 | [![CI](https://github.com/tesollodelto/dg5f_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg5f_ros2/actions/workflows/ci.yml) |
-| dg5f_s_ros2 | [![CI](https://github.com/tesollodelto/dg5f_s_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg5f_s_ros2/actions/workflows/ci.yml) |
-| delto_hardware | [![CI](https://github.com/tesollodelto/dg_hardware/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg_hardware/actions/workflows/ci.yml) |
-| delto_tcp_comm | [![CI](https://github.com/tesollodelto/dg_tcp_comm/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg_tcp_comm/actions/workflows/ci.yml) |
-| dg_sdk_ros2_bridge | [![CI](https://github.com/tesollodelto/dg_sdk_ros2_bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg_sdk_ros2_bridge/actions/workflows/ci.yml) |
+**Gripper Packages**
+
+| Package | Description | Build |
+|---|---|---|
+| [dg5f_ros2](https://github.com/tesollodelto/dg5f_ros2) | DG-5F 5-finger hand | [![CI](https://github.com/tesollodelto/dg5f_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg5f_ros2/actions/workflows/ci.yml) |
+| [dg5f_s_ros2](https://github.com/tesollodelto/dg5f_s_ros2) | DG-5F-S compact hand | [![CI](https://github.com/tesollodelto/dg5f_s_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg5f_s_ros2/actions/workflows/ci.yml) |
+| [dg4f_ros2](https://github.com/tesollodelto/dg4f_ros2) | DG-4F 4-finger gripper | [![CI](https://github.com/tesollodelto/dg4f_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg4f_ros2/actions/workflows/ci.yml) |
+| [dg3f_m_ros2](https://github.com/tesollodelto/dg3f_m_ros2) | DG-3F-M 3-finger gripper | [![CI](https://github.com/tesollodelto/dg3f_m_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg3f_m_ros2/actions/workflows/ci.yml) |
+| [dg3f_b_ros2](https://github.com/tesollodelto/dg3f_b_ros2) | DG-3F-B 3-finger (discontinued) | [![CI](https://github.com/tesollodelto/dg3f_b_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg3f_b_ros2/actions/workflows/ci.yml) |
+
+**Common Packages**
+
+| Package | Description | Build |
+|---|---|---|
+| [delto_hardware](https://github.com/tesollodelto/dg_hardware) | ros2_control hardware interface | [![CI](https://github.com/tesollodelto/dg_hardware/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg_hardware/actions/workflows/ci.yml) |
+| [delto_tcp_comm](https://github.com/tesollodelto/dg_tcp_comm) | TCP communication library | [![CI](https://github.com/tesollodelto/dg_tcp_comm/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg_tcp_comm/actions/workflows/ci.yml) |
+| [dg_sdk_ros2_bridge](https://github.com/tesollodelto/dg_sdk_ros2_bridge) | DG SDK bridge + dg_msgs | [![CI](https://github.com/tesollodelto/dg_sdk_ros2_bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg_sdk_ros2_bridge/actions/workflows/ci.yml) |
 
 ## Architecture
 
 This repository uses a **per-model submodule** structure with shared common packages:
 
-- Each gripper model (`dg3f_b`, `dg3f_m`, `dg4f`, `dg5f`, `dg5fs`) has its own independent repository, included here as a git submodule.
+- Each gripper model (`dg3f_b`, `dg3f_m`, `dg4f`, `dg5f`, `dg5f_s`) has its own independent repository, included here as a git submodule.
 - `dg_common` contains shared packages: `dg_tcp_comm` and `dg_hardware` (managed as submodules).
 - `dg_sdk_ros2_bridge` bridges the Delto SDK with ROS 2, and includes `dg_msgs` (message/service definitions).
 
@@ -61,13 +68,15 @@ tesollo_ros2/
 │   ├── dg4f_driver/
 │   └── dg4f_gz/
 │
-├── dg5f_ros2/            # [submodule] DG-5F 5-finger gripper (includes short variant)
+├── dg5f_ros2/            # [submodule] DG-5F 5-finger hand
 │   ├── dg5f_description/
 │   ├── dg5f_driver/
 │   └── dg5f_gz/
 │
-├── dg5f_s_ros2/          # [submodule] DG-5FS (S model, separate product)
-│   └── dg5f_s_description/
+├── dg5f_s_ros2/          # [submodule] DG-5F-S compact hand (20-DOF / 15-DOF)
+│   ├── dg5f_s_description/
+│   ├── dg5f_s_driver/
+│   └── dg5f_s_gz/
 │
 ├── dg_common/            # Shared packages
 │   ├── dg_hardware/          # [submodule] ros2_control hardware interface

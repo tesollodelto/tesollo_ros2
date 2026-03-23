@@ -17,24 +17,41 @@
 
 ## Packages
 
-- `dg5f_description` — URDF model
-- `dg5f_driver` — Launch files and configuration
-- `dg5f_gz` — Gazebo simulation
+| Package | Description |
+|---------|-------------|
+| `dg5f_description` | URDF/xacro model, meshes, and RViz display launch |
+| `dg5f_driver` | ros2_control hardware driver and controller launch files |
+| `dg5f_gz` | Gazebo simulation |
 
 ## Launch
 
 ```bash
-# Left hand
+# RViz display
+ros2 launch dg5f_description dg5f_right_display.launch.py
+ros2 launch dg5f_description dg5f_left_display.launch.py
+
+# Hardware driver
+ros2 launch dg5f_driver dg5f_right_driver.launch.py
 ros2 launch dg5f_driver dg5f_left_driver.launch.py
 
-# Right hand
-ros2 launch dg5f_driver dg5f_right_driver.launch.py
+# Effort controller
+ros2 launch dg5f_driver dg5f_right_effort_controller.launch.py
+ros2 launch dg5f_driver dg5f_left_effort_controller.launch.py
+
+# PID controller
+ros2 launch dg5f_driver dg5f_right_pid_controller.launch.py
+ros2 launch dg5f_driver dg5f_left_pid_controller.launch.py
+
+# Gazebo simulation
+ros2 launch dg5f_gz dg5f_right_gz.launch.py
+ros2 launch dg5f_gz dg5f_left_gz.launch.py
+ros2 launch dg5f_gz dg5f_both_gz.launch.py
 ```
 
 ## Hand Type
 
-Left and right hands have different motor direction arrays and separate launch files.
+Left and right hands have different motor direction arrays and separate launch files. The hand type is determined by the Model ID in the URDF hardware parameters.
 
 ## Firmware Note
 
-Motor direction was revised in firmware **v2.8+**.
+Motor direction was revised in firmware **v2.8+**. The hardware interface automatically detects the firmware version and applies the correct motor direction mapping.

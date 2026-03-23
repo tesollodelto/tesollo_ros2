@@ -1,7 +1,7 @@
 """Sphinx configuration for tesollo_ros2 documentation."""
 
 project = "tesollo_ros2"
-copyright = "2025, Tesollo Inc."
+copyright = "2025-2026, Tesollo Inc."
 author = "Tesollo"
 release = "1.0.0"
 

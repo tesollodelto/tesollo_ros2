@@ -16,14 +16,26 @@
 
 ## Packages
 
-- `dg4f_description` — URDF model
-- `dg4f_driver` — Launch files and configuration
-- `dg4f_gz` — Gazebo simulation
+| Package | Description |
+|---------|-------------|
+| `dg4f_description` | URDF/xacro model, meshes, and RViz display launch |
+| `dg4f_driver` | ros2_control hardware driver and controller launch files |
+| `dg4f_gz` | Gazebo simulation |
 
 ## Launch
 
 ```bash
+# RViz display
+ros2 launch dg4f_description dg4f_display.launch.py
+
+# Hardware driver
 ros2 launch dg4f_driver dg4f_driver.launch.py
+
+# Effort controller
+ros2 launch dg4f_driver dg4f_effort_controller.launch.py
+
+# Gazebo simulation
+ros2 launch dg4f_gz dg4f_gz.launch.py
 ```
 
 ## Note

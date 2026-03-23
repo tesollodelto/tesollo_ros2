@@ -6,7 +6,7 @@ Unified `ros2_control` hardware interface for all Delto gripper models.
 
 ## Overview
 
-A single `SystemInterface` plugin that supports DG-3F-B, DG-3F-M, DG-4F, and DG-5F through model-aware configuration. The model is selected via URDF hardware parameters.
+A single `SystemInterface` plugin that supports all Delto gripper models (DG-3F-B, DG-3F-M, DG-4F, DG-5F, DG-5F-S, DG-5F-S15) through model-aware configuration. The model is automatically detected from the gripper firmware.
 
 ## Hardware Parameters
 
@@ -15,7 +15,7 @@ A single `SystemInterface` plugin that supports DG-3F-B, DG-3F-M, DG-4F, and DG-
 | `delto_ip` | Gripper IP address | `169.254.186.72` |
 | `delto_port` | TCP port | `502` |
 | `delto_model` | Model ID (hex as decimal) | `0x5F12` (DG-5F-L) |
-| `hand_type` | `left` or `right` (DG-5F only) | `left` |
+| `hand_type` | `left` or `right` (DG-5F, DG-5F-S) | `left` |
 | `fingertip_sensor` | Enable F/T sensor | `false` |
 | `IO` | Enable GPIO | `false` |
 
