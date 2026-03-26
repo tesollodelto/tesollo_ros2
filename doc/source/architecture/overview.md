@@ -27,17 +27,19 @@ digraph A {
     node [shape=box, style=filled, fillcolor="#E8F0FE"];
 
     User [label="User Application", fillcolor="#FFF3E0"];
-    RC [label="ros2_control"];
+    RC [label="ros2_control\nController"];
     HW [label="delto_hardware"];
     TCP [label="dg_tcp_comm"];
     FW [label="Gripper\nFirmware", fillcolor="#E8F5E9"];
 
-    User -> RC [label="effort commands"];
-    RC -> HW;
+    User -> RC [label="position / effort\ncommands"];
+    RC -> HW [label="effort command\ninterface"];
     HW -> TCP [label="TCP protocol"];
     TCP -> FW;
 }
 ```
+
+The controller accepts **position** or **effort** commands from the user depending on the controller type (e.g. `joint_trajectory_controller`, `effort_controller`, `pid_controller`). The hardware interface always outputs **effort (current) commands** to the gripper firmware.
 
 Best for: MoveIt integration, standard ROS 2 control pipelines.
 
