@@ -19,6 +19,14 @@ A single `SystemInterface` plugin that supports all Delto gripper models (DG-3F-
 | `fingertip_sensor` | Enable F/T sensor | `false` |
 | `IO` | Enable GPIO | `false` |
 
+## Connection Behavior
+
+The hardware interface implements automatic background reconnection:
+
+- If connection is lost, a background thread attempts to reconnect (1s interval, up to 10 retries)
+- During reconnection, `read()` and `write()` return OK with the last known data to prevent ros2_control from deactivating the hardware
+- Use the `system/connection_status` state interface (1.0 = connected, 0.0 = disconnected) to monitor connection state
+
 ## Interfaces
 
 ### State Interfaces

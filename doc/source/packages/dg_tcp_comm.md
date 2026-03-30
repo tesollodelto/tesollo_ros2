@@ -6,7 +6,16 @@ Unified TCP communication library for all Delto grippers.
 
 ## Overview
 
-Provides `DeltoTCP::Communication` class that handles the low-level TCP protocol for communicating with Delto gripper firmware. Used internally by `delto_hardware`.
+Provides `DeltoTCP::Communication` class that handles TCP protocol for communicating with Delto gripper firmware over POSIX sockets. Used internally by `delto_hardware`.
+
+### Network Configuration
+
+| Setting | Value | Description |
+|---------|-------|-------------|
+| Socket | POSIX (no boost) | Direct system calls |
+| Receive timeout | 500ms (`poll()`) | Hard deadline per packet |
+| TCP Keepalive | 1s idle, 1s interval, 3 probes | Cable-disconnect detection (~4s) |
+| TCP_NODELAY | Enabled | Reduced latency |
 
 ## Key APIs
 

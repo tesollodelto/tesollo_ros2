@@ -42,12 +42,20 @@ ros2 launch dg4f_driver dg4f_driver.launch.py
 ros2 launch dg3f_m_driver dg3f_m_driver.launch.py
 ```
 
-### Custom IP / Port
+### Launch Arguments
 
-All driver launch files accept `delto_ip` and `delto_port` arguments:
+All driver launch files accept the following arguments:
+
+| Argument | Default | Description |
+|----------|---------|-------------|
+| `delto_ip` | `169.254.186.72` | Gripper IP address |
+| `delto_port` | `502` | Gripper TCP port |
+| `fingertip_sensor` | `false` | Enable fingertip sensor data |
+| `ft_broadcaster` | `false` | Enable F/T sensor broadcaster (force/torque only) |
+| `io` | `false` | Enable GPIO |
 
 ```bash
-ros2 launch dg5f_driver dg5f_right_driver.launch.py delto_ip:=192.168.1.100 delto_port:=502
+ros2 launch dg5f_driver dg5f_right_driver.launch.py delto_ip:=192.168.1.100 fingertip_sensor:=true
 ```
 
 ## 2. Verify Connection
