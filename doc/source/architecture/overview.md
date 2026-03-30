@@ -4,7 +4,7 @@
 
 ```
 tesollo_ros2/
-├── dg3f_b_ros2/          [submodule] DG-3F (B type)
+├── dg3f_b_ros2/          [submodule] DG-3F (B type) (discontinued)
 ├── dg3f_m_ros2/          [submodule] DG-3F (M type)
 ├── dg4f_ros2/            [submodule] DG-4F
 ├── dg5f_ros2/            [submodule] DG-5F

@@ -1,5 +1,9 @@
 # Quick Start
 
+```{note}
+Make sure you have completed the [Installation](installation.md) steps and sourced your workspace (`source install/setup.bash`).
+```
+
 ## 1. Launch a Gripper
 
 Each gripper model provides launch files for `ros2_control`. Pick the one matching your model:
@@ -54,7 +58,7 @@ Check that the hardware interface is active:
 ros2 control list_hardware_interfaces
 ```
 
-You should see `position`, `velocity`, `effort` state interfaces and `effort` command interfaces listed for each joint.
+You should see `position`, `velocity`, `effort`, and `temperature` state interfaces and `effort` command interfaces listed for each joint.
 
 ## 3. Send Commands
 
@@ -117,25 +121,27 @@ ros2 launch dg3f_m_gz dg3f_m_gz.launch.py
 Zero the fingertip force/torque sensors (DG-3F-M, DG-4F, DG-5F, DG-5F-S):
 
 ```bash
-ros2 service call /delto_hardware_interface_node/set_ft_sensor_offset std_srvs/srv/Trigger
+ros2 service call /<namespace>/delto_hardware_interface_node/set_ft_sensor_offset std_srvs/srv/Trigger
 ```
+
+Replace `<namespace>` with your gripper's namespace (e.g., `dg5f_right`, `dg4f`, `dg3f_m`).
 
 ## 7. GPIO Control
 
 Motor ON:
 
 ```bash
-ros2 service call /set_gpio_output1 std_srvs/srv/SetBool "{data: true}"
+ros2 service call /<namespace>/set_gpio_output1 std_srvs/srv/SetBool "{data: true}"
 ```
 
 Grasp:
 
 ```bash
-ros2 service call /set_gpio_output2 std_srvs/srv/SetBool "{data: true}"
+ros2 service call /<namespace>/set_gpio_output2 std_srvs/srv/SetBool "{data: true}"
 ```
 
 Release:
 
 ```bash
-ros2 service call /set_gpio_output3 std_srvs/srv/SetBool "{data: true}"
+ros2 service call /<namespace>/set_gpio_output3 std_srvs/srv/SetBool "{data: true}"
 ```

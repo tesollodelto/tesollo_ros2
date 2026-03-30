@@ -34,7 +34,7 @@ The sensor type is reported by firmware via `GET_VERSION` and determines which s
 | `FT_3AXIS` | `0x02` | 3-axis F/T sensor | 12 bytes (6 x int16, 3 unused) |
 | `TACTILE_M` | `0x03` | Tactile matrix (3x5) | 15 bytes (uint8 per cell) |
 | `FT_4AXIS` | `0x04` | 4-axis F/T sensor | 12 bytes (6 x int16, 2 unused) |
-| `TACTILE_S` | `0x05` | Tactile matrix (3x6) | 36 bytes (uint16 per cell) |
+| `TACTILE_S` | `0x05` | Tactile matrix (3x6) | 36 bytes (18 x uint16) |
 
 ## DeltoReceivedData
 

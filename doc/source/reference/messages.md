@@ -33,6 +33,10 @@ bool[] data    # [output1, output2, output3, input1]
 
 System diagnostic information.
 
+```{note}
+See `dg_msgs/msg/DiagnosisSystem.msg` for field definitions.
+```
+
 ## Recipe Messages
 
 - `RecipePoseData` — Joint pose recipe data
@@ -40,7 +44,15 @@ System diagnostic information.
 - `RecipeGraspData` — Grasp recipe data
 - `RecipeBlendData` — Blend motion recipe data
 
+```{note}
+See the corresponding `dg_msgs/msg/Recipe*.msg` files for field definitions.
+```
+
 ## Configuration Messages
 
 - `GripperSystemSetting` — System-level configuration
 - `GripperSetting` — Gripper-specific settings
+
+```{note}
+See the corresponding `dg_msgs/msg/GripperSystemSetting.msg` and `dg_msgs/msg/GripperSetting.msg` files for field definitions.
+```

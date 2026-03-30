@@ -76,7 +76,9 @@ Quick Start
    # Clone (example: DG-5F left hand)
    git clone https://github.com/tesollodelto/tesollo_ros2.git
    cd tesollo_ros2
-   git submodule update --init dg5f_ros2 dg_sdk_ros2_bridge dg_common/dg_tcp_comm dg_common/dg_hardware
+   git submodule update --init dg5f_ros2 dg_common/dg_tcp_comm dg_common/dg_hardware
+   # Optional: include dg_sdk_ros2_bridge if you need the Delto SDK bridge
+   # git submodule update --init dg_sdk_ros2_bridge
 
    # Build
    cd ~/ros2_ws && colcon build --symlink-install && source install/setup.bash

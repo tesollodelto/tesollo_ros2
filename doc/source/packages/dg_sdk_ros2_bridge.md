@@ -4,6 +4,14 @@
 
 ROS 2 bridge for the Delto Gripper SDK (DG SDK).
 
+```{warning}
+The DG SDK (`libDGSDK.so`) is only available for **x86_64** architectures. This package cannot be used on ARM-based platforms.
+```
+
+```{note}
+Ensure the bundled SDK version matches your gripper firmware. Check the SDK release notes for compatibility information.
+```
+
 ## Overview
 
 Provides a ROS 2 node that wraps the proprietary DG SDK library, exposing all gripper functions as ROS 2 topics and services. This is an alternative to using `delto_hardware` with `ros2_control`.

@@ -111,6 +111,9 @@ git submodule update --init dg5f_s_ros2 dg_common/dg_tcp_comm dg_common/dg_hardw
 git submodule update --init dg4f_ros2   dg_common/dg_tcp_comm dg_common/dg_hardware  # DG-4F
 git submodule update --init dg3f_m_ros2 dg_common/dg_tcp_comm dg_common/dg_hardware  # DG-3F-M
 git submodule update --init dg3f_b_ros2 dg_common/dg_tcp_comm dg_common/dg_hardware  # DG-3F-B
+
+# Optional: include dg_sdk_ros2_bridge if you need the Delto SDK bridge
+git submodule update --init dg_sdk_ros2_bridge
 ```
 
 ## Build

@@ -114,7 +114,11 @@ The gripper communicates over TCP/IP. Configure your network interface to match 
 Set a static IP on the connected interface:
 
 ```bash
-sudo ip addr add 169.254.186.1/16 dev eth0
+sudo ip addr add 169.254.186.1/16 dev <your-interface>
+```
+
+```{note}
+Replace `<your-interface>` with your actual interface name (e.g., `enp0s3`). Run `ip link show` to find it.
 ```
 
 Verify connectivity:
