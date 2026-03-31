@@ -116,6 +116,23 @@ git submodule update --init dg3f_b_ros2 dg_common/dg_tcp_comm dg_common/dg_hardw
 git submodule update --init dg_sdk_ros2_bridge
 ```
 
+## Prerequisites
+
+Before building, install all ROS 2 package dependencies:
+
+```bash
+cd ~/ros2_ws
+rosdep install --from-paths src --ignore-src -r -y
+```
+
+> **Note:** The `dg_sdk_ros2_bridge` package includes a precompiled SDK library (`libDGSDK.so`) that supports **x86_64 architecture only**. It is **not compatible** with ARM64 (aarch64) platforms such as NVIDIA Jetson or Raspberry Pi.
+
+If you are building on an **ARM64** system, exclude the SDK bridge package:
+
+```bash
+colcon build --symlink-install --packages-ignore dg_sdk_ros2_bridge
+```
+
 ## Build
 
 ```bash
