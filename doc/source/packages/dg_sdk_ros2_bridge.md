@@ -28,11 +28,9 @@ The `dg_sdk_ros2_bridge` package provides a ROS 2 node that wraps the proprietar
 | MoveIt integration | `delto_hardware` (ros2_control) |
 | Trajectory following | `delto_hardware` (ros2_control) |
 | Recipe management | `dg_sdk_ros2_bridge` |
-| Advanced PID gain tuning per joint/finger | `dg_sdk_ros2_bridge` |
+| Use the same functions as the DGManager program | `dg_sdk_ros2_bridge` |
 | Blend motion (multi-waypoint smooth paths) | `dg_sdk_ros2_bridge` |
-| TCP (tool center point) space control | `dg_sdk_ros2_bridge` |
-| In-hand manipulation | `dg_sdk_ros2_bridge` |
-| System diagnostics and configuration | `dg_sdk_ros2_bridge` |
+
 
 ```{warning}
 **Important:** The gripper only accepts **one TCP connection** at a time. You cannot run `delto_hardware` and `dg_sdk_ros2_bridge` simultaneously for the same gripper. Choose one approach per gripper instance.
