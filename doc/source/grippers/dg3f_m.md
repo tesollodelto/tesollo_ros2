@@ -132,6 +132,12 @@ Each joint has its own topic: `/dg3f_m/j_dg_X_Y_pospid/reference`.
 
 The `dg3f_m_moveit_config` package provides MoveIt 2 motion planning for the DG-3F-M with mock hardware support.
 
+```{raw} html
+<video width="100%" autoplay loop muted playsinline>
+  <source src="../_static/dg3f_m_moveit.webm" type="video/webm">
+</video>
+```
+
 ### Mock Hardware (No Device Required)
 
 ```bash

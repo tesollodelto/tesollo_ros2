@@ -119,6 +119,12 @@ The effort controller has no position feedback loop. Start with small values to 
 
 The `dg4f_moveit_config` package provides MoveIt 2 motion planning for the DG-4F with mock hardware support.
 
+```{raw} html
+<video width="100%" autoplay loop muted playsinline>
+  <source src="../_static/dg4f_moveit.webm" type="video/webm">
+</video>
+```
+
 ### Mock Hardware (No Device Required)
 
 ```bash
