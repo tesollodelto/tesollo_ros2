@@ -297,12 +297,23 @@ When the driver is running, these topics are available (namespace: `/dg5f_right/
 
 ## Services
 
-| Service | Type | Description |
-|---------|------|-------------|
-| `/dg5f_right/delto_hardware_interface_node/set_ft_sensor_offset` | `std_srvs/srv/Trigger` | Zero-calibrate all F/T sensors |
-| `/dg5f_right/set_gpio_output1` | `std_srvs/srv/SetBool` | Set GPIO output 1 |
-| `/dg5f_right/set_gpio_output2` | `std_srvs/srv/SetBool` | Set GPIO output 2 |
-| `/dg5f_right/set_gpio_output3` | `std_srvs/srv/SetBool` | Set GPIO output 3 |
+The hardware interface creates several ROS 2 services. Replace `<ns>` with your gripper's namespace (e.g., `dg5f_right`).
+
+`/<ns>/delto_hardware_interface_node/set_ft_sensor_offset`
+: **Type:** `std_srvs/srv/Trigger`
+: Zero-calibrate all fingertip F/T sensors. Call when nothing is touching the fingertips.
+
+`/<ns>/set_gpio_output1`
+: **Type:** `std_srvs/srv/SetBool`
+: Set GPIO output 1 (`true` = high, `false` = low)
+
+`/<ns>/set_gpio_output2`
+: **Type:** `std_srvs/srv/SetBool`
+: Set GPIO output 2
+
+`/<ns>/set_gpio_output3`
+: **Type:** `std_srvs/srv/SetBool`
+: Set GPIO output 3
 
 ## Dual-Hand Setup
 

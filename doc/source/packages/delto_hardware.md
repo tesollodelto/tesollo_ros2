@@ -108,14 +108,23 @@ State interfaces are read-only data published by the hardware interface. Control
 
 The hardware interface creates several ROS 2 services for calibration and GPIO control. The service names include the gripper's namespace.
 
-| Service | Type | Description |
-|---------|------|-------------|
-| `/<ns>/delto_hardware_interface_node/set_ft_sensor_offset` | `std_srvs/srv/Trigger` | Zero-calibrate all fingertip F/T sensors. Call this when nothing is touching the fingertips to set the current readings as zero |
-| `/<ns>/set_gpio_output1` | `std_srvs/srv/SetBool` | Set GPIO output 1 (true = high, false = low) |
-| `/<ns>/set_gpio_output2` | `std_srvs/srv/SetBool` | Set GPIO output 2 |
-| `/<ns>/set_gpio_output3` | `std_srvs/srv/SetBool` | Set GPIO output 3 |
-
 Replace `<ns>` with your gripper's namespace (e.g., `dg5f_right`, `dg4f`, `dg3f_m`, `dg5f_s_right`).
+
+`/<ns>/delto_hardware_interface_node/set_ft_sensor_offset`
+: **Type:** `std_srvs/srv/Trigger`
+: Zero-calibrate all fingertip F/T sensors. Call when nothing is touching the fingertips to set the current readings as zero.
+
+`/<ns>/set_gpio_output1`
+: **Type:** `std_srvs/srv/SetBool`
+: Set GPIO output 1 (`true` = high, `false` = low)
+
+`/<ns>/set_gpio_output2`
+: **Type:** `std_srvs/srv/SetBool`
+: Set GPIO output 2
+
+`/<ns>/set_gpio_output3`
+: **Type:** `std_srvs/srv/SetBool`
+: Set GPIO output 3
 
 **Example -- calibrate F/T sensors:**
 
