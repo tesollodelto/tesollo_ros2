@@ -21,6 +21,7 @@
 | `dg4f_description` | URDF/xacro model, meshes, and RViz display launch files |
 | `dg4f_driver` | ros2_control hardware driver, controller configs, and launch files |
 | `dg4f_gz` | Gazebo simulation launch files |
+| `dg4f_moveit_config` | MoveIt 2 configuration (SRDF, planners, mock hardware) |
 
 ## Joint Naming Convention
 
@@ -113,6 +114,32 @@ ros2 topic pub /dg4f/effort_controller/commands std_msgs/msg/Float64MultiArray "
 ```{warning}
 The effort controller has no position feedback loop. Start with small values to avoid damage.
 ```
+
+## MoveIt Integration
+
+The `dg4f_moveit_config` package provides MoveIt 2 motion planning for the DG-4F with mock hardware support.
+
+### Mock Hardware (No Device Required)
+
+```bash
+ros2 launch dg4f_moveit_config dg4f_moveit.launch.py use_mock:=true
+```
+
+### Real Hardware with MoveIt
+
+```bash
+ros2 launch dg4f_moveit_config dg4f_moveit.launch.py use_mock:=false delto_ip:=169.254.186.72
+```
+
+### Planning Groups
+
+| Group | Joints |
+|-------|--------|
+| `finger_1` | `j_dg_1_1` ~ `j_dg_1_4` + `j_dg_1_inner` (chain to `l_dg_1_tip`) |
+| `finger_2` | `j_dg_2_1` ~ `j_dg_2_4` (chain to `l_dg_2_tip`) |
+| `finger_3` | `j_dg_3_1` ~ `j_dg_3_4` (chain to `l_dg_3_tip`) |
+| `finger_4` | `j_dg_4_1` ~ `j_dg_4_4` + `j_dg_4_inner` (chain to `l_dg_4_tip`) |
+| `all_fingers` | All 18 joints |
 
 ## F/T Sensor Setup
 

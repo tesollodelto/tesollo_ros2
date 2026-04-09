@@ -21,6 +21,7 @@
 | `dg3f_m_description` | URDF/xacro model, meshes, and RViz display launch files |
 | `dg3f_m_driver` | ros2_control hardware driver, controller configs, and launch files |
 | `dg3f_m_gz` | Gazebo simulation launch files |
+| `dg3f_m_moveit_config` | MoveIt 2 configuration (SRDF, planners, mock hardware) |
 
 ## Joint Naming Convention
 
@@ -126,6 +127,31 @@ ros2 topic pub /dg3f_m/j_dg_1_1_pospid/reference std_msgs/msg/Float64 "{data: 0.
 ```
 
 Each joint has its own topic: `/dg3f_m/j_dg_X_Y_pospid/reference`.
+
+## MoveIt Integration
+
+The `dg3f_m_moveit_config` package provides MoveIt 2 motion planning for the DG-3F-M with mock hardware support.
+
+### Mock Hardware (No Device Required)
+
+```bash
+ros2 launch dg3f_m_moveit_config dg3f_m_moveit.launch.py use_mock:=true
+```
+
+### Real Hardware with MoveIt
+
+```bash
+ros2 launch dg3f_m_moveit_config dg3f_m_moveit.launch.py use_mock:=false delto_ip:=169.254.186.72
+```
+
+### Planning Groups
+
+| Group | Joints |
+|-------|--------|
+| `finger_1` | `j_dg_1_1` ~ `j_dg_1_4` (chain to `l_dg_1_tip`) |
+| `finger_2` | `j_dg_2_1` ~ `j_dg_2_4` (chain to `l_dg_2_tip`) |
+| `finger_3` | `j_dg_3_1` ~ `j_dg_3_4` (chain to `l_dg_3_tip`) |
+| `all_fingers` | All 12 joints |
 
 ## F/T Sensor Setup
 

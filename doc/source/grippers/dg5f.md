@@ -22,6 +22,7 @@
 | `dg5f_description` | URDF/xacro model, meshes, and RViz display launch files |
 | `dg5f_driver` | ros2_control hardware driver, controller configs, and launch files |
 | `dg5f_gz` | Gazebo simulation launch files |
+| `dg5f_moveit_config` | MoveIt 2 configuration (SRDF, planners, mock hardware) |
 
 ## Joint Naming Convention
 
@@ -178,6 +179,68 @@ ros2 topic pub /dg5f_right/rj_dg_pospid/reference std_msgs/msg/Float64MultiArray
 ```
 
 **Config file:** `config/dg5f_right_pid_all_controller.yaml`
+
+## MoveIt Integration
+
+The `dg5f_moveit_config` package provides MoveIt 2 motion planning for the DG-5F. It includes mock hardware support via `mock_components/GenericSystem`, so you can test motion planning **without a physical gripper**.
+
+```{image} /_static/dg5fs_moveit.gif
+:alt: MoveIt motion planning with DG-5F-S
+:width: 100%
+```
+
+### MoveIt Launch Files
+
+| Launch File | Package | Description |
+|-------------|---------|-------------|
+| `dg5f_right_moveit.launch.py` | `dg5f_moveit_config` | Right hand MoveIt (mock or real) |
+| `dg5f_left_moveit.launch.py` | `dg5f_moveit_config` | Left hand MoveIt (mock or real) |
+
+### Mock Hardware (No Device Required)
+
+Use `mock_components/GenericSystem` to simulate the gripper. Position commands are mirrored directly to joint states.
+
+```bash
+# Mock hardware (default)
+ros2 launch dg5f_moveit_config dg5f_right_moveit.launch.py use_mock:=true
+```
+
+You can also run the mock driver standalone (without MoveIt):
+
+```bash
+ros2 launch dg5f_driver dg5f_right_mock.launch.py
+```
+
+### Real Hardware with MoveIt
+
+```bash
+ros2 launch dg5f_moveit_config dg5f_right_moveit.launch.py use_mock:=false delto_ip:=169.254.186.72
+```
+
+### MoveIt Launch Arguments
+
+| Argument | Default | Description |
+|----------|---------|-------------|
+| `use_mock` | `true` | Use mock hardware (`true`) or real hardware (`false`) |
+| `delto_ip` | `169.254.186.72` | Gripper IP (real hardware only) |
+| `delto_port` | `502` | Gripper port (real hardware only) |
+
+### Planning Groups
+
+| Group | Joints |
+|-------|--------|
+| `finger_1` | `rj_dg_1_1` ~ `rj_dg_1_4` (chain to `rl_dg_1_tip`) |
+| `finger_2` | `rj_dg_2_1` ~ `rj_dg_2_4` (chain to `rl_dg_2_tip`) |
+| `finger_3` | `rj_dg_3_1` ~ `rj_dg_3_4` (chain to `rl_dg_3_tip`) |
+| `finger_4` | `rj_dg_4_1` ~ `rj_dg_4_4` (chain to `rl_dg_4_tip`) |
+| `finger_5` | `rj_dg_5_1` ~ `rj_dg_5_4` (chain to `rl_dg_5_tip`) |
+| `all_fingers` | All 20 joints |
+
+### Named States
+
+| State | Description |
+|-------|-------------|
+| `open` | All joints at 0.0 (zero pose) |
 
 ## F/T Sensor Setup
 

@@ -39,6 +39,7 @@
 | `dg5f_s_description` | URDF/xacro model, meshes, and RViz display launch files |
 | `dg5f_s_driver` | ros2_control hardware driver, controller configs, and launch files |
 | `dg5f_s_gz` | Gazebo simulation launch files |
+| `dg5f_s_moveit_config` | MoveIt 2 configuration (SRDF, planners, mock hardware) |
 
 ## Launch Files
 
@@ -133,6 +134,67 @@ ros2 launch dg5f_s_driver dg5f_s_right_effort_controller.launch.py
 ```bash
 ros2 topic pub /dg5f_s_right/effort_controller/commands std_msgs/msg/Float64MultiArray "{data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}" --once
 ```
+
+## MoveIt Integration
+
+The `dg5f_s_moveit_config` package provides MoveIt 2 motion planning for the DG-5F-S. It includes mock hardware support via `mock_components/GenericSystem`, so you can test motion planning **without a physical gripper**.
+
+```{image} /_static/dg5fs_moveit.gif
+:alt: MoveIt motion planning with DG-5F-S
+:width: 100%
+```
+
+### MoveIt Launch Files
+
+| Launch File | Package | Description |
+|-------------|---------|-------------|
+| `dg5f_s_right_moveit.launch.py` | `dg5f_s_moveit_config` | Right 20-DOF MoveIt |
+| `dg5f_s_left_moveit.launch.py` | `dg5f_s_moveit_config` | Left 20-DOF MoveIt |
+| `dg5f_s_15dof_right_moveit.launch.py` | `dg5f_s_moveit_config` | Right 15-DOF MoveIt |
+| `dg5f_s_15dof_left_moveit.launch.py` | `dg5f_s_moveit_config` | Left 15-DOF MoveIt |
+
+### Mock Hardware (No Device Required)
+
+```bash
+# 20-DOF right hand with mock hardware
+ros2 launch dg5f_s_moveit_config dg5f_s_right_moveit.launch.py use_mock:=true
+
+# 15-DOF left hand with mock hardware
+ros2 launch dg5f_s_moveit_config dg5f_s_15dof_left_moveit.launch.py use_mock:=true
+```
+
+Standalone mock driver (without MoveIt):
+
+```bash
+ros2 launch dg5f_s_driver dg5f_s_right_mock.launch.py
+```
+
+### Real Hardware with MoveIt
+
+```bash
+ros2 launch dg5f_s_moveit_config dg5f_s_right_moveit.launch.py use_mock:=false delto_ip:=169.254.186.72
+```
+
+### MoveIt Launch Arguments
+
+| Argument | Default | Description |
+|----------|---------|-------------|
+| `use_mock` | `true` | Use mock hardware (`true`) or real hardware (`false`) |
+| `delto_ip` | `169.254.186.72` | Gripper IP (real hardware only) |
+| `delto_port` | `502` | Gripper port (real hardware only) |
+
+### Planning Groups
+
+Each finger is a chain from `link_base` to `link_X_tip`:
+
+| Group | Joints (20-DOF) | Joints (15-DOF) |
+|-------|-----------------|-----------------|
+| `finger_1` | `joint_1_1` ~ `joint_1_4` | `joint_1_1` ~ `joint_1_3` |
+| `finger_2` | `joint_2_1` ~ `joint_2_4` | `joint_2_1` ~ `joint_2_3` |
+| `finger_3` | `joint_3_1` ~ `joint_3_4` | `joint_3_1` ~ `joint_3_3` |
+| `finger_4` | `joint_4_1` ~ `joint_4_4` | `joint_4_1` ~ `joint_4_3` |
+| `finger_5` | `joint_5_1` ~ `joint_5_4` | `joint_5_1` ~ `joint_5_3` |
+| `all_fingers` | All 20 joints | All 15 joints |
 
 ## F/T Sensor Setup
 
