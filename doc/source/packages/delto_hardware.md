@@ -142,17 +142,17 @@ ros2 service call /dg5f_right/set_gpio_output1 std_srvs/srv/SetBool "{data: true
 
 The hardware interface supports all Delto gripper models through a unified codebase:
 
-| Model | ID | Fingers | Joints | F/T Sensor | Motor Direction |
-|-------|----|---------|--------|------------|-----------------|
-| ~~DG-3F-B~~ | `0x3F01` | 3 | 12 | No | Firmware-dependent (v3.6+) |
-| DG-3F-M | `0x3F02` | 3 | 12 | Yes | Firmware-dependent (v2.8+) |
-| DG-4F | `0x4F02` | 4 | 18 | Yes | Always standard |
-| DG-5F-L | `0x5F12` | 5 | 20 | Yes | Firmware-dependent (v2.8+) |
-| DG-5F-R | `0x5F22` | 5 | 20 | Yes | Firmware-dependent (v2.8+) |
-| DG-5F-S-L | `0x5F14` | 5 | 20 | Yes | Always standard |
-| DG-5F-S-R | `0x5F24` | 5 | 20 | Yes | Always standard |
-| DG-5F-S15-L | `0x5F34` | 5 | 15 | Yes | Always standard |
-| DG-5F-S15-R | `0x5F44` | 5 | 15 | Yes | Always standard |
+| Model ID | Model Name | Motors | Bytes/Motor | GPIO | Sensor |
+|----------|------------|--------|-------------|------|--------|
+| `0x3F01` | ~~DG-3F B~~ | 12 | 5 | Yes | -- |
+| `0x3F02` | DG-3F M | 12 | 8 | Yes | F/T, TACTILE_M |
+| `0x4F02` | DG-4F | 18 | 8 | Yes | F/T, TACTILE_M |
+| `0x5F12` | DG-5F Left | 20 | 8 | Yes | F/T, TACTILE_M |
+| `0x5F22` | DG-5F Right | 20 | 8 | Yes | F/T, TACTILE_M |
+| `0x5F14` | DG-5F-S Left | 20 | 8 | -- | F/T, TACTILE_S |
+| `0x5F24` | DG-5F-S Right | 20 | 8 | -- | F/T, TACTILE_S |
+| `0x5F34` | DG-5F-S15 Left | 15 | 8 | -- | TACTILE_S |
+| `0x5F44` | DG-5F-S15 Right | 15 | 8 | -- | TACTILE_S |
 
 ## Control Flow
 
