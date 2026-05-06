@@ -115,9 +115,11 @@ The bridge exposes 86+ services for full SDK functionality. Here they are organi
 
 | Service | Description |
 |---------|-------------|
-| `SetPositionModeJoint` / `Finger` / `All` | Enable position control mode |
+| `SetPositionModeJoint` / `Finger` / `All` / `Base` | Enable position control mode |
 | `SetCurrentControlMode` | Enable direct current control mode |
-| `SetTargetCurrentJoint` / `Finger` / `All` | Set target motor current |
+| `SetTargetCurrentJoint` / `Finger` / `All` / `Base` | Set target motor current |
+| `SetJointCurrentGainP` / `PFinger` / `PAll` / `PBase` | Set current-loop P gain |
+| `SetJointCurrentGainI` / `IFinger` / `IAll` / `IBase` | Set current-loop I gain and integral limit |
 
 ### Motion Commands
 
