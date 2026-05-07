@@ -19,13 +19,13 @@ These services are created by the `delto_hardware` hardware interface and are av
 * - `/<ns>/delto_hardware_interface_node/set_ft_sensor_offset`
   - `std_srvs/srv/Trigger`
   - Zero-calibrate all fingertip F/T sensors. Call when nothing is touching the fingertips
-* - `/<ns>/set_gpio_output1`
+* - `/<ns>/delto_hardware_interface_node/set_gpio_output1`
   - `std_srvs/srv/SetBool`
   - Set GPIO output 1 (true = high, false = low)
-* - `/<ns>/set_gpio_output2`
+* - `/<ns>/delto_hardware_interface_node/set_gpio_output2`
   - `std_srvs/srv/SetBool`
   - Set GPIO output 2
-* - `/<ns>/set_gpio_output3`
+* - `/<ns>/delto_hardware_interface_node/set_gpio_output3`
   - `std_srvs/srv/SetBool`
   - Set GPIO output 3
 ```
@@ -44,7 +44,7 @@ Replace `<ns>` with your gripper's namespace. Common namespaces:
 ros2 service call /dg5f_right/delto_hardware_interface_node/set_ft_sensor_offset std_srvs/srv/Trigger
 
 # Enable GPIO output 1 on a DG-4F
-ros2 service call /dg4f/set_gpio_output1 std_srvs/srv/SetBool "{data: true}"
+ros2 service call /dg4f/delto_hardware_interface_node/set_gpio_output1 std_srvs/srv/SetBool "{data: true}"
 ```
 
 ```{note}

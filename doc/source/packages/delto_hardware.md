@@ -110,21 +110,23 @@ The hardware interface creates several ROS 2 services for calibration and GPIO c
 
 Replace `<ns>` with your gripper's namespace (e.g., `dg5f_right`, `dg4f`, `dg3f_m`, `dg5f_s_right`).
 
+All services are advertised under the hardware interface node `delto_hardware_interface_node`.
+
 `/<ns>/delto_hardware_interface_node/set_ft_sensor_offset`
 : **Type:** `std_srvs/srv/Trigger`
-: Zero-calibrate all fingertip F/T sensors. Call when nothing is touching the fingertips to set the current readings as zero.
+: Zero-calibrate all fingertip F/T sensors. Call when nothing is touching the fingertips to set the current readings as zero. Available only when the gripper carries an F/T sensor and `fingertip_sensor:=true`.
 
-`/<ns>/set_gpio_output1`
+`/<ns>/delto_hardware_interface_node/set_gpio_output1`
 : **Type:** `std_srvs/srv/SetBool`
-: Set GPIO output 1 (`true` = high, `false` = low)
+: Set GPIO output 1 (`true` = high, `false` = low). Available only when `IO:=true` on a model that supports GPIO.
 
-`/<ns>/set_gpio_output2`
+`/<ns>/delto_hardware_interface_node/set_gpio_output2`
 : **Type:** `std_srvs/srv/SetBool`
-: Set GPIO output 2
+: Set GPIO output 2.
 
-`/<ns>/set_gpio_output3`
+`/<ns>/delto_hardware_interface_node/set_gpio_output3`
 : **Type:** `std_srvs/srv/SetBool`
-: Set GPIO output 3
+: Set GPIO output 3.
 
 **Example -- calibrate F/T sensors:**
 
@@ -135,7 +137,42 @@ ros2 service call /dg5f_right/delto_hardware_interface_node/set_ft_sensor_offset
 **Example -- set GPIO output 1 to high:**
 
 ```bash
-ros2 service call /dg5f_right/set_gpio_output1 std_srvs/srv/SetBool "{data: true}"
+ros2 service call /dg5f_right/delto_hardware_interface_node/set_gpio_output1 std_srvs/srv/SetBool "{data: true}"
+```
+
+## Published Topics
+
+When the gripper carries a tactile sensor and `fingertip_sensor:=true`, the hardware interface publishes one `sensor_msgs/msg/Image` per finger, named `tactile/finger_N` where `N` runs from `1` to the gripper's finger count. The topics are advertised on the controller-manager namespace (no node-name prefix), so the full path is `/<ns>/tactile/finger_N`.
+
+```{list-table}
+:header-rows: 1
+:widths: 30 22 18 15 15
+
+* - Topic
+  - Type
+  - Encoding
+  - Resolution
+  - Sensor type
+* - `/<ns>/tactile/finger_N`
+  - `sensor_msgs/msg/Image`
+  - `mono8`
+  - 3 x 5
+  - TACTILE_M (DG-3F-M, DG-4F, DG-5F)
+* - `/<ns>/tactile/finger_N`
+  - `sensor_msgs/msg/Image`
+  - `mono16` (little-endian)
+  - 3 x 6
+  - TACTILE_S (DG-5F-S, DG-5F-S15)
+```
+
+```{note}
+The image encoding is selected automatically from the sensor type reported by the gripper firmware. F/T-only models (no tactile pad) do not publish these topics.
+```
+
+**Example -- view a tactile pad in `rqt_image_view`:**
+
+```bash
+ros2 run rqt_image_view rqt_image_view /dg5f_right/tactile/finger_1
 ```
 
 ## Supported Models

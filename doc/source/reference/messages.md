@@ -113,4 +113,7 @@ When using the `delto_hardware` driver (ros2_control approach), the system uses 
 * - `std_msgs/msg/Float64MultiArray`
   - `/<ns>/rj_dg_pospid/reference`
   - Grouped PID controller position references
+* - `sensor_msgs/msg/Image`
+  - `/<ns>/tactile/finger_N`
+  - Per-finger tactile pad image (mono8 3x5 for TACTILE_M, mono16 3x6 for TACTILE_S)
 ```
