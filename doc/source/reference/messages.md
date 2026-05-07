@@ -88,11 +88,29 @@ See the corresponding `dg_msgs/msg/GripperSystemSetting.msg` and `dg_msgs/msg/Gr
 
 When using the `delto_hardware` driver (ros2_control approach), the system uses these standard message types:
 
-| Type | Where Used | Description |
-|------|-----------|-------------|
-| `sensor_msgs/msg/JointState` | `/<ns>/joint_states` | Joint positions, velocities, and efforts |
-| `geometry_msgs/msg/WrenchStamped` | `/<ns>/fingertip_N_broadcaster/wrench` | F/T sensor force and torque readings |
-| `control_msgs/action/FollowJointTrajectory` | `/<ns>/<controller>/follow_joint_trajectory` | Trajectory commands for the JTC |
-| `std_msgs/msg/Float64MultiArray` | `/<ns>/effort_controller/commands` | Direct effort commands |
-| `std_msgs/msg/Float64` | `/<ns>/<joint>_pospid/reference` | PID controller position reference |
-| `std_msgs/msg/Float64MultiArray` | `/<ns>/rj_dg_pospid/reference` | Grouped PID controller position references |
+```{list-table}
+:header-rows: 1
+:widths: 25 35 40
+
+* - Type
+  - Where Used
+  - Description
+* - `sensor_msgs/msg/JointState`
+  - `/<ns>/joint_states`
+  - Joint positions, velocities, and efforts
+* - `geometry_msgs/msg/WrenchStamped`
+  - `/<ns>/fingertip_N_broadcaster/wrench`
+  - F/T sensor force and torque readings
+* - `control_msgs/action/FollowJointTrajectory`
+  - `/<ns>/<controller>/follow_joint_trajectory`
+  - Trajectory commands for the JTC
+* - `std_msgs/msg/Float64MultiArray`
+  - `/<ns>/effort_controller/commands`
+  - Direct effort commands
+* - `std_msgs/msg/Float64`
+  - `/<ns>/<joint>_pospid/reference`
+  - PID controller position reference
+* - `std_msgs/msg/Float64MultiArray`
+  - `/<ns>/rj_dg_pospid/reference`
+  - Grouped PID controller position references
+```

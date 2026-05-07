@@ -28,7 +28,7 @@ The `dg_sdk_ros2_bridge` package provides a ROS 2 node that wraps the proprietar
 | MoveIt integration | `delto_hardware` (ros2_control) |
 | Trajectory following | `delto_hardware` (ros2_control) |
 | Recipe management | `dg_sdk_ros2_bridge` |
-| Use the same functions as the DGManager program | `dg_sdk_ros2_bridge` |
+| DGManager-equivalent direct SDK access | `dg_sdk_ros2_bridge` |
 | Blend motion (multi-waypoint smooth paths) | `dg_sdk_ros2_bridge` |
 
 
@@ -118,8 +118,10 @@ The bridge exposes 86+ services for full SDK functionality. Here they are organi
 | `SetPositionModeJoint` / `Finger` / `All` / `Base` | Enable position control mode |
 | `SetCurrentControlMode` | Enable direct current control mode |
 | `SetTargetCurrentJoint` / `Finger` / `All` / `Base` | Set target motor current |
-| `SetJointCurrentGainP` / `PFinger` / `PAll` / `PBase` | Set current-loop P gain |
-| `SetJointCurrentGainI` / `IFinger` / `IAll` / `IBase` | Set current-loop I gain and integral limit |
+| `SetJointCurrentGainP` / `PFinger` / `PAll` / `PBase` | Set current-loop P gain (per joint, per finger, all joints, or base joints) |
+| `SetJointCurrentGainI` / `IFinger` / `IAll` / `IBase` | Set current-loop I gain (per joint, per finger, all joints, or base joints) [^base] |
+
+[^base]: I-gain services additionally take an integral limit (`current_i_limit`). The `Base` variants of these services apply only to the two base joints of DG-4F.
 
 ### Motion Commands
 
@@ -213,8 +215,13 @@ ros2 topic echo /dg/fingertip_sensor_data
 **Step 4: Send motion commands.**
 
 ```bash
-# Move all joints to target positions
-ros2 service call /dg/MoveJointAll dg_msgs/srv/MoveJointAll "{...}"
+# Move all joints to target positions (degrees, length matches the gripper's joint count)
+ros2 service call /dg/MoveJointAll dg_msgs/srv/MoveJointAll \
+  "{target_joint: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}"
+```
+
+```{note}
+`target_joint` is a fixed-size `float32[20]` array. Pad unused joints with `0.0` to match the gripper's joint count. See `dg_msgs/srv/MoveJointAll.srv` for the exact field signature.
 ```
 
 **Step 5: Stop and disconnect.**

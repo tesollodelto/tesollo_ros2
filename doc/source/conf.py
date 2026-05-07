@@ -25,7 +25,9 @@ myst_enable_extensions = [
     "deflist",
     "fieldlist",
     "tasklist",
+    "strikethrough",
 ]
+suppress_warnings = ["myst.strikethrough"]
 source_suffix = {
     ".rst": "restructuredtext",
     ".md": "markdown",

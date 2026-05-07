@@ -9,12 +9,26 @@ This page lists all services available in the Tesollo ROS 2 packages. Services a
 
 These services are created by the `delto_hardware` hardware interface and are available under your gripper's namespace (e.g., `/dg5f_right/`, `/dg4f/`, `/dg3f_m/`).
 
-| Service | Type | Description |
-|---------|------|-------------|
-| `/<ns>/delto_hardware_interface_node/set_ft_sensor_offset` | `std_srvs/srv/Trigger` | Zero-calibrate all fingertip F/T sensors. Call when nothing is touching the fingertips |
-| `/<ns>/set_gpio_output1` | `std_srvs/srv/SetBool` | Set GPIO output 1 (true = high, false = low) |
-| `/<ns>/set_gpio_output2` | `std_srvs/srv/SetBool` | Set GPIO output 2 |
-| `/<ns>/set_gpio_output3` | `std_srvs/srv/SetBool` | Set GPIO output 3 |
+```{list-table}
+:header-rows: 1
+:widths: 40 25 35
+
+* - Service
+  - Type
+  - Description
+* - `/<ns>/delto_hardware_interface_node/set_ft_sensor_offset`
+  - `std_srvs/srv/Trigger`
+  - Zero-calibrate all fingertip F/T sensors. Call when nothing is touching the fingertips
+* - `/<ns>/set_gpio_output1`
+  - `std_srvs/srv/SetBool`
+  - Set GPIO output 1 (true = high, false = low)
+* - `/<ns>/set_gpio_output2`
+  - `std_srvs/srv/SetBool`
+  - Set GPIO output 2
+* - `/<ns>/set_gpio_output3`
+  - `std_srvs/srv/SetBool`
+  - Set GPIO output 3
+```
 
 Replace `<ns>` with your gripper's namespace. Common namespaces:
 - `dg5f_right`, `dg5f_left` -- DG-5F
@@ -88,9 +102,13 @@ All custom services below are defined in the `dg_msgs` package (part of the `dg_
 
 | Service | Description |
 |---------|-------------|
-| `SetPositionModeJoint` / `Finger` / `All` | Set position control mode |
+| `SetPositionModeJoint` / `Finger` / `All` / `Base` | Set position control mode |
 | `SetCurrentControlMode` | Enable current control |
-| `SetTargetCurrentJoint` / `Finger` / `All` | Set target current |
+| `SetTargetCurrentJoint` / `Finger` / `All` / `Base` | Set target current |
+| `SetJointCurrentGainP` / `PFinger` / `PAll` / `PBase` | Current-loop P gain (per joint, per finger, all, or base) |
+| `SetJointCurrentGainI` / `IFinger` / `IAll` / `IBase` | Current-loop I gain (per joint, per finger, all, or base) [^1] |
+
+[^1]: I-gain services also accept an integral limit (`current_i_limit`). The `Base` variants apply only to the base joints of DG-4F.
 
 ### Motion Commands
 

@@ -14,11 +14,11 @@ This page explains how the `delto_hardware` package works under the hood as a ro
 
 | Model | ID | Fingers | Joints | F/T Sensor | GPIO | Motor Direction |
 |-------|----|---------|--------|------------|------|-----------------|
-| ~~DG-3F-B~~ | `0x3F01` | 3 | 12 | No | Yes | Firmware-dependent (v3.6+) |
-| DG-3F-M | `0x3F02` | 3 | 12 | Yes | Yes | Firmware-dependent (v2.8+) |
+| ~~DG-3F-B~~ | `0x3F01` | 3 | 12 | No | Yes | Firmware-dependent (legacy below v3.6) |
+| DG-3F-M | `0x3F02` | 3 | 12 | Yes | Yes | Firmware-dependent (legacy below v2.8) |
 | DG-4F | `0x4F02` | 4 | 18 | Yes | Yes | Always standard |
-| DG-5F-L | `0x5F12` | 5 | 20 | Yes | Yes | Firmware-dependent (v2.8+) |
-| DG-5F-R | `0x5F22` | 5 | 20 | Yes | Yes | Firmware-dependent (v2.8+) |
+| DG-5F-L | `0x5F12` | 5 | 20 | Yes | Yes | Firmware-dependent (legacy below v2.8) |
+| DG-5F-R | `0x5F22` | 5 | 20 | Yes | Yes | Firmware-dependent (legacy below v2.8) |
 | DG-5F-S-L | `0x5F14` | 5 | 20 | Yes | Yes | Always standard |
 | DG-5F-S-R | `0x5F24` | 5 | 20 | Yes | Yes | Always standard |
 | DG-5F-S15-L | `0x5F34` | 5 | 15 | Yes | Yes | Always standard |
