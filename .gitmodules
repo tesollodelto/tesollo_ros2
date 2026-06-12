@@ -1,24 +1,24 @@
 [submodule "dg5f_ros2"]
 	path = dg5f_ros2
-	url = https://github.com/CottontailRabbit/dg5f_ros2
+	url = https://github.com/tesollodelto/dg5f_ros2
 [submodule "dg3f_m_ros2"]
 	path = dg3f_m_ros2
-	url = https://github.com/CottontailRabbit/dg3f_m_ros2
+	url = https://github.com/tesollodelto/dg3f_m_ros2
 [submodule "dg3f_b_ros2"]
 	path = dg3f_b_ros2
-	url = https://github.com/CottontailRabbit/dg3f_b_ros2
+	url = https://github.com/tesollodelto/dg3f_b_ros2
 [submodule "dg4f_ros2"]
 	path = dg4f_ros2
-	url = https://github.com/CottontailRabbit/dg4f_ros2
+	url = https://github.com/tesollodelto/dg4f_ros2
 [submodule "dg5f_s_ros2"]
 	path = dg5f_s_ros2
-	url = https://github.com/CottontailRabbit/dg5f_s_ros2
+	url = https://github.com/tesollodelto/dg5f_s_ros2
 [submodule "dg_common/dg_tcp_comm"]
 	path = dg_common/dg_tcp_comm
-	url = https://github.com/CottontailRabbit/dg_tcp_comm
+	url = https://github.com/tesollodelto/dg_tcp_comm
 [submodule "dg_common/dg_hardware"]
 	path = dg_common/dg_hardware
-	url = https://github.com/CottontailRabbit/dg_hardware
+	url = https://github.com/tesollodelto/dg_hardware
 [submodule "dg_sdk_ros2_bridge"]
 	path = dg_sdk_ros2_bridge
-	url = https://github.com/CottontailRabbit/dg_sdk_ros2_bridge
+	url = https://github.com/tesollodelto/dg_sdk_ros2_bridge
