@@ -32,8 +32,8 @@
 
 | Package | Description | Build |
 |---|---|---|
-| [delto_hardware](https://github.com/tesollodelto/dg_hardware) | ros2_control hardware interface | [![CI](https://github.com/tesollodelto/dg_hardware/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg_hardware/actions/workflows/ci.yml) |
-| [delto_tcp_comm](https://github.com/tesollodelto/dg_tcp_comm) | TCP communication library | [![CI](https://github.com/tesollodelto/dg_tcp_comm/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg_tcp_comm/actions/workflows/ci.yml) |
+| [delto_hardware](https://github.com/tesollodelto/dg_hardware) | ros2_control hardware interface (repo: `dg_hardware`) | [![CI](https://github.com/tesollodelto/dg_hardware/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg_hardware/actions/workflows/ci.yml) |
+| [delto_tcp_comm](https://github.com/tesollodelto/dg_tcp_comm) | TCP communication library (repo: `dg_tcp_comm`) | [![CI](https://github.com/tesollodelto/dg_tcp_comm/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg_tcp_comm/actions/workflows/ci.yml) |
 | [dg_sdk_ros2_bridge](https://github.com/tesollodelto/dg_sdk_ros2_bridge) | DG SDK bridge + dg_msgs | [![CI](https://github.com/tesollodelto/dg_sdk_ros2_bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg_sdk_ros2_bridge/actions/workflows/ci.yml) |
 
 ## Architecture

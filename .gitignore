@@ -1,2 +1,5 @@
 doc/build/
 .claude/
+build/
+install/
+log/
