@@ -53,15 +53,22 @@ These are the main methods provided by the `DeltoTCP::Communication` class:
 
 The gripper firmware reports its sensor type during the initial handshake. The communication library automatically parses the sensor data in the correct format:
 
-| Type | Description | Data per finger |
-|------|-------------|-----------------|
-| `FT_6AXIS` | 6-axis force/torque sensor | 6 doubles (fx, fy, fz, tx, ty, tz) |
-| `FT_3AXIS` | 3-axis force/torque sensor | 6 doubles (3 used, 3 unused) |
-| `FT_4AXIS` | 4-axis force/torque sensor | 6 doubles (4 used, 2 unused) |
-| `TACTILE_M` | 3x5 tactile matrix sensor | 15 uint8 values per finger |
-| `TACTILE_S` | 3x6 tactile matrix sensor | 18 uint16 values per finger |
+| Type | Description | Data per finger | Units / Range |
+|------|-------------|-----------------|---------------|
+| `FT_6AXIS` | 6-axis force/torque sensor | 6 doubles (fx, fy, fz, tx, ty, tz) | Force: N, Torque: Nm |
+| `FT_3AXIS` | 3-axis force/torque sensor | 6 doubles (3 used, 3 unused) | Force: N |
+| `FT_4AXIS` | 4-axis force/torque sensor | 6 doubles (4 used, 2 unused) | Force: N, Torque: Nm |
+| `TACTILE_M` | 3x5 tactile matrix sensor | 15 uint8 values per finger | 0–255 per cell |
+| `TACTILE_S` | 3x6 tactile matrix sensor | 18 uint16 values per finger | 0–4095 per cell |
 
 The sensor type is detected automatically -- you do not need to configure it manually.
+
+```{note}
+On the wire, F/T values are transmitted as signed 16-bit big-endian integers in units of
+0.1 N (force) and 1 mNm (torque); the library converts them to SI units (N, Nm).
+Tactile cells are ordered top-left to bottom-right (row-major): `TACTILE_M` uses 1 byte
+per cell, `TACTILE_S` uses 2 bytes per cell (big-endian, 12-bit range 0–4095).
+```
 
 ## Data Structure
 

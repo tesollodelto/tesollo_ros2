@@ -193,15 +193,15 @@ Replace `<ns>` with `dg4f`.
 : **Type:** `std_srvs/srv/Trigger`
 : Zero-calibrate all fingertip F/T sensors. Call when nothing is touching the fingertips.
 
-`/<ns>/set_gpio_output1`
+`/<ns>/delto_hardware_interface_node/set_gpio_output1`
 : **Type:** `std_srvs/srv/SetBool`
 : Set GPIO output 1 (`true` = high, `false` = low)
 
-`/<ns>/set_gpio_output2`
+`/<ns>/delto_hardware_interface_node/set_gpio_output2`
 : **Type:** `std_srvs/srv/SetBool`
 : Set GPIO output 2
 
-`/<ns>/set_gpio_output3`
+`/<ns>/delto_hardware_interface_node/set_gpio_output3`
 : **Type:** `std_srvs/srv/SetBool`
 : Set GPIO output 3
 

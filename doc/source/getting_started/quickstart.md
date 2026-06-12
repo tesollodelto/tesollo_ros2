@@ -322,19 +322,19 @@ If you launched with `io:=true`, you can control the GPIO outputs:
 **Motor ON (GPIO output 1):**
 
 ```bash
-ros2 service call /dg5f_right/set_gpio_output1 std_srvs/srv/SetBool "{data: true}"
+ros2 service call /dg5f_right/delto_hardware_interface_node/set_gpio_output1 std_srvs/srv/SetBool "{data: true}"
 ```
 
 **Grasp (GPIO output 2):**
 
 ```bash
-ros2 service call /dg5f_right/set_gpio_output2 std_srvs/srv/SetBool "{data: true}"
+ros2 service call /dg5f_right/delto_hardware_interface_node/set_gpio_output2 std_srvs/srv/SetBool "{data: true}"
 ```
 
 **Release (GPIO output 3):**
 
 ```bash
-ros2 service call /dg5f_right/set_gpio_output3 std_srvs/srv/SetBool "{data: true}"
+ros2 service call /dg5f_right/delto_hardware_interface_node/set_gpio_output3 std_srvs/srv/SetBool "{data: true}"
 ```
 
 ## Step 10: Shutdown

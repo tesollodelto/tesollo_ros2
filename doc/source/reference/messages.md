@@ -31,7 +31,7 @@ F/T sensor readings published continuously on `/dg/fingertip_sensor_data`.
 float64[] data    # 6 values per finger: [fx, fy, fz, tx, ty, tz]
 ```
 
-The array is organized as `[finger1_fx, finger1_fy, finger1_fz, finger1_tx, finger1_ty, finger1_tz, finger2_fx, ...]`. For a 5-finger gripper, this contains 30 values (5 fingers x 6 axes).
+The array is organized as `[finger1_fx, finger1_fy, finger1_fz, finger1_tx, finger1_ty, finger1_tz, finger2_fx, ...]`. For a 5-finger gripper, this contains 30 values (5 fingers x 6 axes). Forces (`fx`, `fy`, `fz`) are in Newtons (N) and torques (`tx`, `ty`, `tz`) are in Newton-meters (Nm), converted from the gripper's raw protocol units (0.1 N for force, 1 mNm for torque).
 
 **How to read this topic:**
 

@@ -75,14 +75,18 @@ With these keepalive settings, a cable disconnection is detected within approxim
 
 During the initial connection, the gripper firmware reports its installed sensor type. The communication library automatically uses the correct data format based on this:
 
-| Type | Enum Value | Description | Data per Finger |
-|------|------------|-------------|-----------------|
-| `NONE` | `0x00` | No sensor installed | -- |
-| `FT_6AXIS` | `0x01` | 6-axis force/torque sensor | 12 bytes (6 x int16: fx, fy, fz, tx, ty, tz) |
-| `FT_3AXIS` | `0x02` | 3-axis force/torque sensor | 12 bytes (6 x int16, 3 values unused) |
-| `FT_4AXIS` | `0x04` | 4-axis force/torque sensor | 12 bytes (6 x int16, 2 values unused) |
-| `TACTILE_M` | `0x03` | Tactile matrix sensor (3x5 grid) | 15 bytes (uint8 per cell) |
-| `TACTILE_S` | `0x05` | Tactile matrix sensor (3x6 grid) | 36 bytes (18 x uint16) |
+| Type | Enum Value | Description | Data per Finger | Raw Units / Range |
+|------|------------|-------------|-----------------|-------------------|
+| `NONE` | `0x00` | No sensor installed | -- | -- |
+| `FT_6AXIS` | `0x01` | 6-axis force/torque sensor | 12 bytes (6 x int16: fx, fy, fz, tx, ty, tz) | Force: 0.1 N, Torque: 1 mNm |
+| `FT_3AXIS` | `0x02` | 3-axis force/torque sensor | 12 bytes (6 x int16, 3 values unused) | Force: 0.1 N |
+| `FT_4AXIS` | `0x04` | 4-axis force/torque sensor | 12 bytes (6 x int16, 2 values unused) | Force: 0.1 N, Torque: 1 mNm |
+| `TACTILE_M` | `0x03` | Tactile matrix sensor (3x5 grid) | 15 bytes (uint8 per cell) | 0–255 per cell |
+| `TACTILE_S` | `0x05` | Tactile matrix sensor (3x6 grid) | 36 bytes (18 x uint16) | 0–4095 per cell |
+
+Multi-byte sensor values are transmitted in **big-endian** byte order. Tactile cells are
+ordered top-left to bottom-right (row-major). The library converts F/T values to SI units
+(N, Nm) before exposing them in `DeltoReceivedData`.
 
 ```{note}
 The sensor type is detected automatically from the firmware. You do not need to configure it manually. The `delto_tcp_comm` library parses the correct data format based on the reported type.
