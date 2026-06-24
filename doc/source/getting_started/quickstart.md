@@ -72,6 +72,12 @@ Press `Ctrl+C` to stop the ping. If you see "Destination Host Unreachable" or no
 
 If your gripper has been configured with a different IP address, you can pass it as a launch argument (shown in the next step). You do not need to edit any config files.
 
+```{important}
+**Set the gripper to Developer Mode first.** The ros2_control drivers speak a custom protocol over Ethernet that is only available in **Developer Mode** (not Operator Mode), with the communication mode set to **EtherNET**. Switch the gripper to Developer Mode + EtherNET before launching any hardware driver, otherwise the connection will fail.
+
+The switch/LED panel layout depends on the model. DG-3F and DG-5F share a button panel: set ② Developer Mode and ④ EtherNET (confirm with the LED blink pattern). The **DG-5F-S is different** -- it uses a DIP switch near the *LED Check Point*, where ② selects Developer Mode (white LED blinks twice). See the per-package driver README for the panel image and details.
+```
+
 ## Step 2: Launch the Gripper Driver
 
 Open a terminal, source your workspace, and launch the driver:

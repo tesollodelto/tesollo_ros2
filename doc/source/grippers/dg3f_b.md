@@ -26,6 +26,12 @@
 | `dg3f_b_driver` | ros2_control hardware driver and launch files |
 | `dg3f_b_moveit_config` | MoveIt 2 configuration (SRDF, planners, mock hardware) |
 
+## Before You Control: Developer Mode
+
+```{important}
+The ros2_control driver speaks a custom protocol over Ethernet that is only available in **Developer Mode**. On the DG-3F button panel, set ② **Developer Mode** and ④ **EtherNET** before launching the driver, otherwise the connection will fail. See the `dg3f_b_driver` README for the switch/LED panel image.
+```
+
 ## Launch
 
 ```bash

@@ -34,6 +34,12 @@ Each joint is named `Xj_dg_F_J` where:
 
 For example, `rj_dg_3_2` is the right hand, finger 3, joint 2.
 
+## Before You Control: Developer Mode
+
+```{important}
+The ros2_control driver speaks a custom protocol over Ethernet that is only available in **Developer Mode**. On the DG-5F button panel, set ② **Developer Mode** and ④ **EtherNET** before launching the driver, otherwise the connection will fail. See the `dg5f_driver` README for the switch/LED panel image.
+```
+
 ## Launch Files
 
 The DG-5F provides several launch files, each starting a different controller type. You only need to run **one** at a time.

@@ -32,6 +32,12 @@ Each joint is named `j_dg_F_J` where:
 
 For example, `j_dg_2_3` is finger 2, joint 3.
 
+## Before You Control: Developer Mode
+
+```{important}
+The ros2_control driver speaks a custom protocol over Ethernet that is only available in **Developer Mode**. On the DG-3F button panel, set ② **Developer Mode** and ④ **EtherNET** before launching the driver, otherwise the connection will fail. See the `dg3f_m_driver` README for the switch/LED panel image.
+```
+
 ## Launch Files
 
 ### Driver Launch Files (Hardware Connection)

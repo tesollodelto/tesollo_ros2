@@ -41,6 +41,12 @@
 | `dg5f_s_gz` | Gazebo simulation launch files |
 | `dg5f_s_moveit_config` | MoveIt 2 configuration (SRDF, planners, mock hardware) |
 
+## Before You Control: Developer Mode
+
+```{important}
+The ros2_control driver speaks a custom protocol over Ethernet that is only available in **Developer Mode**. The DG-5F-S uses a **DIP switch** (near the *LED Check Point*) rather than the DG-3F/DG-5F button panel: set ② **Developer Mode** before launching a hardware driver. See the `dg5f_s_driver` README for the switch/LED panel image and LED indications.
+```
+
 ## Launch Files
 
 ### 20-DOF Driver Launch Files
