@@ -55,9 +55,11 @@ html_theme_options = {
 }
 
 # Intersphinx
-intersphinx_mapping = {
-    "ros2": ("https://docs.ros.org/en/humble/", None),
-}
+# Note: no cross-references to external inventories are currently used, so the
+# mapping is left empty. docs.ros.org is behind bot protection and its
+# objects.inv is not fetchable from CI; adding it back here would fail the
+# `-W` (warnings-as-errors) build with an unreachable-inventory warning.
+intersphinx_mapping = {}
 
 # TODO extension
 todo_include_todos = True
