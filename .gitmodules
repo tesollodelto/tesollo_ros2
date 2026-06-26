@@ -22,3 +22,9 @@
 [submodule "dg_sdk_ros2_bridge"]
 	path = dg_sdk_ros2_bridge
 	url = https://github.com/tesollodelto/dg_sdk_ros2_bridge
+[submodule "dg1f_ros2"]
+	path = dg1f_ros2
+	url = https://github.com/tesollodelto/dg1f_ros2
+[submodule "dg2f_ros2"]
+	path = dg2f_ros2
+	url = https://github.com/tesollodelto/dg2f_ros2
