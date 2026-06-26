@@ -55,15 +55,19 @@ Product Lineup
      </div>
 
      <div style="text-align: center; width: 180px;">
-       <img src="_static/DG2F.webp" alt="DG-2F" style="width: 160px; height: 160px; object-fit: contain; border: 1px solid #ddd; border-radius: 12px; padding: 8px; opacity: 0.5;" />
-       <p style="margin-top: 0.5em; font-weight: bold; color: #aaa;">DG-2F</p>
-       <p style="font-size: 0.85em; color: #aaa;">Not Supported</p>
+       <a href="grippers/dg2f.html">
+         <img src="_static/DG2F.webp" alt="DG-2F" style="width: 160px; height: 160px; object-fit: contain; border: 1px solid #ddd; border-radius: 12px; padding: 8px;" />
+       </a>
+       <p style="margin-top: 0.5em; font-weight: bold;">DG-2F</p>
+       <p style="font-size: 0.85em; color: #888;">2-Finger Gripper</p>
      </div>
 
      <div style="text-align: center; width: 180px;">
-       <img src="_static/DG-1F.webp" alt="DG-1F" style="width: 160px; height: 160px; object-fit: contain; border: 1px solid #ddd; border-radius: 12px; padding: 8px; opacity: 0.5;" />
-       <p style="margin-top: 0.5em; font-weight: bold; color: #aaa;">DG-1F</p>
-       <p style="font-size: 0.85em; color: #aaa;">Not Supported</p>
+       <a href="grippers/dg1f.html">
+         <img src="_static/DG-1F.webp" alt="DG-1F" style="width: 160px; height: 160px; object-fit: contain; border: 1px solid #ddd; border-radius: 12px; padding: 8px;" />
+       </a>
+       <p style="margin-top: 0.5em; font-weight: bold;">DG-1F</p>
+       <p style="font-size: 0.85em; color: #888;">1-Finger Gripper</p>
      </div>
 
    </div>
@@ -137,6 +141,8 @@ Quick Start
    grippers/dg4f
    grippers/dg3f_m
    grippers/dg3f_b
+   grippers/dg2f
+   grippers/dg1f
 
 .. toctree::
    :maxdepth: 2

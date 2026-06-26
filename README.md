@@ -27,8 +27,8 @@
 | [dg4f_ros2](https://github.com/tesollodelto/dg4f_ros2) | DG-4F 4-finger gripper | [![CI](https://github.com/tesollodelto/dg4f_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg4f_ros2/actions/workflows/ci.yml) |
 | [dg3f_m_ros2](https://github.com/tesollodelto/dg3f_m_ros2) | DG-3F-M 3-finger gripper | [![CI](https://github.com/tesollodelto/dg3f_m_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg3f_m_ros2/actions/workflows/ci.yml) |
 | [dg3f_b_ros2](https://github.com/tesollodelto/dg3f_b_ros2) | DG-3F-B 3-finger (discontinued) | [![CI](https://github.com/tesollodelto/dg3f_b_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg3f_b_ros2/actions/workflows/ci.yml) |
-| [dg2f_ros2](https://github.com/tesollodelto/dg2f_ros2) | DG-2F 2-finger gripper (description only) | — |
-| [dg1f_ros2](https://github.com/tesollodelto/dg1f_ros2) | DG-1F 1-finger gripper (description only) | — |
+| [dg2f_ros2](https://github.com/tesollodelto/dg2f_ros2) | DG-2F 2-finger gripper (6 DOF) | — |
+| [dg1f_ros2](https://github.com/tesollodelto/dg1f_ros2) | DG-1F 1-finger gripper (3 DOF) | — |
 
 **Common Packages**
 
@@ -42,7 +42,7 @@
 
 This repository uses a **per-model submodule** structure with shared common packages:
 
-- Each gripper model (`dg1f`, `dg2f`, `dg3f_b`, `dg3f_m`, `dg4f`, `dg5f`, `dg5f_s`) has its own independent repository, included here as a git submodule. (`dg1f`/`dg2f` currently ship a description package only.)
+- Each gripper model (`dg1f`, `dg2f`, `dg3f_b`, `dg3f_m`, `dg4f`, `dg5f`, `dg5f_s`) has its own independent repository, included here as a git submodule.
 - `dg_common` contains shared packages: `dg_tcp_comm` and `dg_hardware` (managed as submodules).
 - `dg_sdk_ros2_bridge` bridges the Delto SDK with ROS 2, and includes `dg_msgs` (message/service definitions).
 
@@ -56,11 +56,13 @@ This repository uses a **per-model submodule** structure with shared common pack
 
 ```
 tesollo_ros2/
-├── dg1f_ros2/            # [submodule] DG-1F 1-finger gripper (description only)
-│   └── dg1f_description/
+├── dg1f_ros2/            # [submodule] DG-1F 1-finger gripper
+│   ├── dg1f_description/
+│   └── dg1f_driver/
 │
-├── dg2f_ros2/            # [submodule] DG-2F 2-finger gripper (description only)
-│   └── dg2f_description/
+├── dg2f_ros2/            # [submodule] DG-2F 2-finger gripper
+│   ├── dg2f_description/
+│   └── dg2f_driver/
 │
 ├── dg3f_b_ros2/          # [submodule] DG-3F (B type) 3-finger gripper
 │   ├── dg3f_b_description/

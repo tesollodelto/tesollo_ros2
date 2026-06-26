@@ -8,6 +8,8 @@ The `tesollo_ros2` repository is organized as a collection of **git submodules**
 
 ```
 tesollo_ros2/
+├── dg1f_ros2/            [submodule] DG-1F -- 1-finger gripper
+├── dg2f_ros2/            [submodule] DG-2F -- 2-finger gripper
 ├── dg3f_b_ros2/          [submodule] DG-3F (B type) -- discontinued
 ├── dg3f_m_ros2/          [submodule] DG-3F (M type) -- 3-finger gripper
 ├── dg4f_ros2/            [submodule] DG-4F -- 4-finger gripper

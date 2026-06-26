@@ -14,6 +14,8 @@ This page explains how the `delto_hardware` package works under the hood as a ro
 
 | Model | ID | Fingers | Joints | F/T Sensor | GPIO | Motor Direction |
 |-------|----|---------|--------|------------|------|-----------------|
+| DG-1F-M | `0x1F02` | 1 | 3 | No | Yes | Firmware-dependent (legacy below v2.8) |
+| DG-2F-M | `0x2F02` | 2 | 6 | No | Yes | Firmware-dependent (legacy below v2.8) |
 | ~~DG-3F-B~~ | `0x3F01` | 3 | 12 | No | Yes | Firmware-dependent (legacy below v3.6) |
 | DG-3F-M | `0x3F02` | 3 | 12 | Yes | Yes | Firmware-dependent (legacy below v2.8) |
 | DG-4F | `0x4F02` | 4 | 18 | Yes | Yes | Always standard |
@@ -74,6 +76,8 @@ Older firmware versions on some models use different motor direction mappings. T
 
 | Model | Firmware Threshold | Behavior |
 |-------|--------------------|----------|
+| DG-1F-M | v2.8 | Versions below 2.8 use legacy direction mapping |
+| DG-2F-M | v2.8 | Versions below 2.8 use legacy direction mapping |
 | DG-3F-B | v3.6 | Versions below 3.6 use legacy direction mapping |
 | DG-3F-M | v2.8 | Versions below 2.8 use legacy direction mapping |
 | DG-5F | v2.8 | Versions below 2.8 use legacy direction mapping |
