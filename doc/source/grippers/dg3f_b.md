@@ -44,6 +44,16 @@ A multi-gripper launch file is also available:
 ros2 launch dg3f_b_driver dg3f_b_driver_multi.launch.py
 ```
 
+PID controllers (position reference → effort) are also provided:
+
+```bash
+# Individual: one PidController per joint (/dg3f_b/<joint>_pospid/reference)
+ros2 launch dg3f_b_driver dg3f_b_pid_controller.launch.py
+
+# All-in-one: a single grouped PidController (/dg3f_b/j_dg_pospid/reference)
+ros2 launch dg3f_b_driver dg3f_b_pid_all_controller.launch.py
+```
+
 ## MoveIt Integration
 
 The `dg3f_b_moveit_config` package provides MoveIt 2 motion planning for the DG-3F-B with mock hardware support.

@@ -40,6 +40,8 @@ Additionally, there are two inner joints: `j_dg_1_inner` and `j_dg_4_inner`.
 |-------------|----------------|-------------|
 | `dg4f_driver.launch.py` | Joint Trajectory Controller | Default driver with JTC (position control with PID) |
 | `dg4f_effort_controller.launch.py` | JointGroupEffortController | Direct effort (current) control |
+| `dg4f_pid_controller.launch.py` | PidController (per joint) | Individual PID controllers, one per joint (`<joint>_pospid`) |
+| `dg4f_pid_all_controller.launch.py` | PidController (grouped) | Single PID controller for all joints (`j_dg_pospid`) |
 
 ### Visualization and Simulation
 

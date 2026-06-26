@@ -46,7 +46,8 @@ The ros2_control driver speaks a custom protocol over Ethernet that is only avai
 |-------------|----------------|-------------|
 | `dg3f_m_driver.launch.py` | Joint Trajectory Controller | Default driver with JTC (position control with PID) |
 | `dg3f_m_effort_controller.launch.py` | JointGroupEffortController | Direct effort (current) control |
-| `dg3f_m_pid_controller.launch.py` | PidController (per joint) | Individual PID controllers, one per joint |
+| `dg3f_m_pid_controller.launch.py` | PidController (per joint) | Individual PID controllers, one per joint (`<joint>_pospid`) |
+| `dg3f_m_pid_all_controller.launch.py` | PidController (grouped) | Single PID controller for all joints (`j_dg_pospid`) |
 
 ### Visualization and Simulation
 

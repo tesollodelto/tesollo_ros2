@@ -57,6 +57,8 @@ The ros2_control driver speaks a custom protocol over Ethernet that is only avai
 | `dg5f_s_left_driver.launch.py` | Joint Trajectory Controller | Left hand with JTC |
 | `dg5f_s_right_effort_controller.launch.py` | JointGroupEffortController | Right hand with direct effort control |
 | `dg5f_s_left_effort_controller.launch.py` | JointGroupEffortController | Left hand with direct effort control |
+| `dg5f_s_{right,left}_pid_controller.launch.py` | PidController (per joint) | Individual PID controllers, one per joint (`<joint>_pospid`) |
+| `dg5f_s_{right,left}_pid_all_controller.launch.py` | PidController (grouped) | Single PID controller for all joints (`joint_pospid`) |
 
 ### 15-DOF Driver Launch Files
 
@@ -66,6 +68,8 @@ The ros2_control driver speaks a custom protocol over Ethernet that is only avai
 | `dg5f_s_15dof_left_driver.launch.py` | Joint Trajectory Controller | Left hand 15-DOF with JTC |
 | `dg5f_s_15dof_right_effort_controller.launch.py` | JointGroupEffortController | Right hand 15-DOF with effort control |
 | `dg5f_s_15dof_left_effort_controller.launch.py` | JointGroupEffortController | Left hand 15-DOF with effort control |
+| `dg5f_s_15dof_{right,left}_pid_controller.launch.py` | PidController (per joint) | Individual PID controllers, one per joint (`<joint>_pospid`) |
+| `dg5f_s_15dof_{right,left}_pid_all_controller.launch.py` | PidController (grouped) | Single PID controller for all joints (`joint_pospid`) |
 
 ### Visualization and Simulation
 
