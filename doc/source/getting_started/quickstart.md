@@ -323,6 +323,11 @@ ros2 service call /dg5f_right/delto_hardware_interface_node/set_ft_sensor_offset
 
 ## Step 9: GPIO Control
 
+```{note}
+Skip this step on **DG-5F-S** and **DG-5F-M (Short Wrist)** -- those models have no
+GPIO hardware, so `io:=true` is ignored and no GPIO services are created.
+```
+
 If you launched with `io:=true`, you can control the GPIO outputs:
 
 **Motor ON (GPIO output 1):**
@@ -345,7 +350,16 @@ ros2 service call /dg5f_right/delto_hardware_interface_node/set_gpio_output3 std
 
 ## Step 10: Shutdown
 
-To stop the gripper driver, press `Ctrl+C` in the terminal where it is running. The driver will cleanly disconnect from the gripper.
+To stop the gripper driver, press `Ctrl+C` in the terminal where it is running. On a
+clean shutdown the driver sends a zero-duty frame before disconnecting, so the motors
+are de-energized and the fingers go limp instead of holding their last command.
+
+```{warning}
+That release only happens on a clean shutdown (`Ctrl+C`, or a controller-manager
+deactivate). If the process is killed outright (`SIGKILL`, a crash) or the network
+link drops, the firmware keeps applying the last PWM duty it received and the hand
+stays energized. Power-cycle the gripper if you need it guaranteed limp.
+```
 
 ## Launch Files for Other Models
 

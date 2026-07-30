@@ -37,6 +37,18 @@ sudo apt update
 sudo apt install ros-jazzy-ros2-control ros-jazzy-ros2-controllers
 ```
 
+**For ROS 2 Lyrical (experimental):**
+
+```bash
+sudo apt update
+sudo apt install ros-lyrical-ros2-control ros-lyrical-ros2-controllers
+```
+
+```{note}
+Lyrical support is experimental: the packages build in CI but are not validated
+on hardware. Use Humble or Jazzy for production.
+```
+
 ```{note}
 **What does this install?** `ros2-control` is the hardware abstraction layer that lets ROS 2 talk to motors and sensors in a standardized way. `ros2-controllers` provides ready-made controllers like the Joint Trajectory Controller (for position control) and the Effort Controller (for direct current/torque control). The Delto gripper drivers rely on both of these.
 ```
@@ -140,7 +152,11 @@ git clone https://github.com/tesollodelto/dg_hardware.git
 git clone https://github.com/tesollodelto/dg_tcp_comm.git
 ```
 
-Replace `dg5f_ros2` with your model (`dg4f_ros2`, `dg3f_m_ros2`, `dg5f_s_ros2`).
+Replace `dg5f_ros2` with your model: `dg5f_s_ros2`, `dg4f_ros2`, `dg3f_m_ros2`, `dg3f_b_ros2`, `dg2f_ros2` or `dg1f_ros2`.
+
+```{warning}
+Pick this layout **or** the `tesollo_ros2` umbrella layout above, never both. `dg_hardware` and `dg_tcp_comm` are already included as submodules under `dg_common/` there, and a second copy in the same workspace makes `colcon` fail with a duplicate package name.
+```
 
 ## Step 4: Install Dependencies with rosdep
 

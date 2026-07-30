@@ -100,7 +100,7 @@ Each `GetData()` call returns a `DeltoReceivedData` structure containing:
 |-------|------|-------------|
 | `joint` | `vector<double>` | Joint positions in radians |
 | `velocity` | `vector<double>` | Joint velocities in radians/second |
-| `current` | `vector<double>` | Motor currents in amperes |
+| `current` | `vector<double>` | Motor currents in milliamperes (1 mA per LSB on the wire, unscaled) |
 | `temperature` | `vector<double>` | Motor temperatures in degrees Celsius |
 | `fingertip_sensor` | `vector<double>` | F/T sensor data (N fingers x 6 axes) -- populated for FT sensor types |
 | `gpio` | `vector<bool>` | GPIO states: [output1, output2, output3, input1] |

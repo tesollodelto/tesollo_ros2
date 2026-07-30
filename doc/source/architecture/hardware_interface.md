@@ -21,10 +21,17 @@ This page explains how the `delto_hardware` package works under the hood as a ro
 | DG-4F | `0x4F02` | 4 | 18 | Yes | Yes | Always standard |
 | DG-5F-L | `0x5F12` | 5 | 20 | Yes | Yes | Firmware-dependent (legacy below v2.8) |
 | DG-5F-R | `0x5F22` | 5 | 20 | Yes | Yes | Firmware-dependent (legacy below v2.8) |
-| DG-5F-S-L | `0x5F14` | 5 | 20 | Yes | Yes | Always standard |
-| DG-5F-S-R | `0x5F24` | 5 | 20 | Yes | Yes | Always standard |
-| DG-5F-S15-L | `0x5F34` | 5 | 15 | Yes | Yes | Always standard |
-| DG-5F-S15-R | `0x5F44` | 5 | 15 | Yes | Yes | Always standard |
+| DG-5F-S-L | `0x5F14` | 5 | 20 | Yes | No | Always standard |
+| DG-5F-S-R | `0x5F24` | 5 | 20 | Yes | No | Always standard |
+| DG-5F-S15-L | `0x5F34` | 5 | 15 | Yes | No | Always standard |
+| DG-5F-S15-R | `0x5F44` | 5 | 15 | Yes | No | Always standard |
+
+```{note}
+The DG-5F-S variants have no GPIO hardware, so `IO:=true` is ignored on those
+models (the driver logs a warning). The same applies to DG-5F-M (Short Wrist),
+which shares Product ID `0x5F12` / `0x5F22` with the standard DG-5F-M and
+therefore cannot be told apart from the ID alone.
+```
 
 ## Lifecycle
 

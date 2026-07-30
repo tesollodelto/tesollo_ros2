@@ -40,10 +40,17 @@ These parameters are configured in the URDF/XACRO file that describes the grippe
 |-----------|-------------|---------|
 | `delto_ip` | IP address of the gripper on the network | `169.254.186.72` |
 | `delto_port` | TCP port the gripper listens on | `502` |
-| `delto_model` | Model ID (hexadecimal). Determines joint count and motor direction | Auto-detected from firmware |
+| `delto_model` | Model ID. Determines actuator count, frame layout and motor direction | `0x5F12` (DG-5F-L) |
 | `hand_type` | `left` or `right` (only for DG-5F and DG-5F-S) | `left` |
 | `fingertip_sensor` | Enable F/T sensor data reading | `false` |
 | `IO` | Enable GPIO reading and control | `false` |
+
+```{warning}
+`delto_model` is **not** auto-detected -- it must match your gripper. The driver
+reads the Product ID from the device only to cross-check it, and refuses to
+start if the configured and reported models imply different actuator counts.
+Omitting the parameter silently selects the DG-5F-L default.
+```
 
 In the XACRO file, these appear like this:
 
@@ -66,11 +73,21 @@ You typically do not need to edit these files directly. Instead, pass values as 
 
 The hardware interface implements **automatic background reconnection**:
 
-- If the TCP connection to the gripper is lost (cable disconnected, gripper rebooted, etc.), a background thread attempts to reconnect at 1-second intervals, for up to 10 retries.
+- If the TCP connection to the gripper is lost (cable disconnected, gripper rebooted, etc.), a background thread retries indefinitely, starting at 1-second intervals and backing off to a maximum of 8 seconds.
 - During reconnection, the `read()` and `write()` functions return OK with the last known data. This prevents ros2_control from deactivating the hardware interface during temporary disconnections.
+- Because the feedback is frozen while the link is down, the current-control integrator is held at zero for the whole outage, so nothing accumulates to be dumped into the motors when the link returns.
+- On a successful reconnect the driver sends a zero-duty frame and clears the integrator before resuming normal writes.
 - You can monitor the connection status programmatically using the `system/connection_status` state interface:
   - `1.0` = connected
   - `0.0` = disconnected
+
+```{warning}
+The gripper firmware keeps applying the last PWM duty it received. While the link
+is down the motors therefore stay energized at the pre-disconnect torque -- the
+driver cannot change that, because the socket it would send zero duty on is the
+one that went away. Treat a `connection_status` of `0.0` as "the hand is still
+holding whatever it was holding", not as "the hand is safe".
+```
 
 To check the connection status from the command line:
 
@@ -86,11 +103,22 @@ State interfaces are read-only data published by the hardware interface. Control
 |-----------|-----|-------------|
 | `position` | Joint | Current joint position in radians |
 | `velocity` | Joint | Current joint velocity in radians/second |
-| `effort` | Joint | Current motor current in amperes |
+| `effort` | Joint | Measured motor current in **milliamperes** -- see the note below |
 | `temperature` | Joint | Motor temperature in degrees Celsius |
 | `force.x`, `force.y`, `force.z` | Finger | Fingertip force (if `fingertip_sensor` enabled) |
 | `torque.x`, `torque.y`, `torque.z` | Finger | Fingertip torque (if `fingertip_sensor` enabled) |
 | `gpio/output_1`, `gpio/output_2`, `gpio/output_3` | System | GPIO output states (if `IO` enabled) |
+
+```{warning}
+The `effort` interfaces carry **motor current in mA**, not torque in N·m, even
+though `hardware_interface::HW_IF_EFFORT` is defined as N or N·m. A generic
+effort controller will therefore misread the value by roughly three orders of
+magnitude and in the wrong dimension. Use it only with the Delto-specific
+controllers in this repository, or convert with
+`delto_gripper_helper::ConvertEffort()`. The same applies to the `effort`
+command interface, which the driver feeds into its current-control loop rather
+than treating as a torque.
+```
 | `gpio/input_1` | System | GPIO input state (if `IO` enabled) |
 | `system/connection_status` | System | TCP connection status (1.0 = connected, 0.0 = disconnected) |
 

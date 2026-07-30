@@ -9,6 +9,7 @@
     </a>
     <img src="https://img.shields.io/badge/ROS_2-Humble-blue?logo=ros" alt="ROS 2 Humble" />
     <img src="https://img.shields.io/badge/ROS_2-Jazzy-blue?logo=ros" alt="ROS 2 Jazzy" />
+    <img src="https://img.shields.io/badge/ROS_2-Lyrical-orange?logo=ros" alt="ROS 2 Lyrical (experimental)" />
     <img src="https://img.shields.io/badge/License-BSD--3--Clause-green" alt="License" />
   </p>
   <p>
@@ -37,6 +38,25 @@
 | [delto_hardware](https://github.com/tesollodelto/dg_hardware) | ros2_control hardware interface (repo: `dg_hardware`) | [![CI](https://github.com/tesollodelto/dg_hardware/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg_hardware/actions/workflows/ci.yml) |
 | [delto_tcp_comm](https://github.com/tesollodelto/dg_tcp_comm) | TCP communication library (repo: `dg_tcp_comm`) | [![CI](https://github.com/tesollodelto/dg_tcp_comm/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg_tcp_comm/actions/workflows/ci.yml) |
 | [dg_sdk_ros2_bridge](https://github.com/tesollodelto/dg_sdk_ros2_bridge) | DG SDK bridge + dg_msgs | [![CI](https://github.com/tesollodelto/dg_sdk_ros2_bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/tesollodelto/dg_sdk_ros2_bridge/actions/workflows/ci.yml) |
+
+## Supported ROS 2 distributions
+
+`main` is the single source tree for all distributions — there are no per-distro branches.
+
+| Distribution | Status | Notes |
+|---|---|---|
+| Humble | Supported | Built in CI |
+| Jazzy | Supported | Built in CI |
+| Lyrical | **Experimental** | Built in CI, allowed to fail; not validated on hardware |
+
+Distro differences are handled by feature detection, not by branching:
+`ament_target_dependencies()` (removed in Lyrical's `ament_cmake`) is selected with
+`if(COMMAND ...)`, and the `on_init()` hardware-interface signature (changed in
+`hardware_interface` 4.x) with `__has_include`. The same sources build against
+`hardware_interface` 2.x, 4.x and 6.x.
+
+> The former `jazzy` and `lyrical` branches are superseded by `main` and are no
+> longer updated. Use `main`.
 
 ## Architecture
 
@@ -99,9 +119,12 @@ tesollo_ros2/
 
 ## Clone
 
+Clone into the **`src/` directory of a ROS 2 workspace** — the `colcon build` commands below are run from the workspace root (`~/ros2_ws`), so a clone anywhere else will not be found.
+
 ### All models
 
 ```bash
+mkdir -p ~/ros2_ws/src && cd ~/ros2_ws/src
 git clone --recursive https://github.com/tesollodelto/tesollo_ros2.git
 ```
 
@@ -112,6 +135,7 @@ Clone the repo and initialize only the submodule you need. You must also initial
 > **Note:** Other model folders (e.g. `dg3f_b_ros2/`, `dg4f_ros2/`) will appear as empty directories. This is normal git submodule behavior — they take no disk space and are ignored by `colcon build`.
 
 ```bash
+mkdir -p ~/ros2_ws/src && cd ~/ros2_ws/src
 git clone https://github.com/tesollodelto/tesollo_ros2.git
 cd tesollo_ros2
 
@@ -121,10 +145,14 @@ git submodule update --init dg5f_s_ros2 dg_common/dg_tcp_comm dg_common/dg_hardw
 git submodule update --init dg4f_ros2   dg_common/dg_tcp_comm dg_common/dg_hardware  # DG-4F
 git submodule update --init dg3f_m_ros2 dg_common/dg_tcp_comm dg_common/dg_hardware  # DG-3F-M
 git submodule update --init dg3f_b_ros2 dg_common/dg_tcp_comm dg_common/dg_hardware  # DG-3F-B
+git submodule update --init dg2f_ros2   dg_common/dg_tcp_comm dg_common/dg_hardware  # DG-2F
+git submodule update --init dg1f_ros2   dg_common/dg_tcp_comm dg_common/dg_hardware  # DG-1F
 
 # Optional: include dg_sdk_ros2_bridge if you need the Delto SDK bridge
 git submodule update --init dg_sdk_ros2_bridge
 ```
+
+> **Do not** additionally `git clone dg_hardware` / `git clone dg_tcp_comm` into `src/`. They are already present under `dg_common/`, and a second copy makes `colcon` fail with a duplicate package name. (The individual model READMEs describe that standalone layout as an alternative to this one — pick one, not both.)
 
 ## Prerequisites
 
@@ -149,6 +177,12 @@ colcon build --symlink-install --packages-ignore dg_sdk_ros2_bridge
 cd ~/ros2_ws
 colcon build --symlink-install
 source install/setup.bash
+```
+
+To build only what one model needs, use `--packages-up-to` (never `--packages-select` for the driver packages alone — that skips `delto_hardware` / `delto_tcp_comm` and the build fails at `find_package(delto_hardware)`):
+
+```bash
+colcon build --symlink-install --packages-up-to dg5f_description dg5f_driver
 ```
 
 ## License

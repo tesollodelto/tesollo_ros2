@@ -11,6 +11,7 @@
        </a>
        <img src="https://img.shields.io/badge/ROS_2-Humble-blue?logo=ros" alt="ROS 2 Humble" />
        <img src="https://img.shields.io/badge/ROS_2-Jazzy-blue?logo=ros" alt="ROS 2 Jazzy" />
+       <img src="https://img.shields.io/badge/ROS_2-Lyrical-orange?logo=ros" alt="ROS 2 Lyrical (experimental)" />
        <img src="https://img.shields.io/badge/License-BSD--3--Clause-green" alt="License" />
      </p>
    </div>
@@ -77,7 +78,8 @@ Quick Start
 
 .. code-block:: bash
 
-   # Clone (example: DG-5F left hand)
+   # Clone into the src/ directory of a ROS 2 workspace (example: DG-5F left hand)
+   mkdir -p ~/ros2_ws/src && cd ~/ros2_ws/src
    git clone https://github.com/tesollodelto/tesollo_ros2.git
    cd tesollo_ros2
    git submodule update --init dg5f_ros2 dg_common/dg_tcp_comm dg_common/dg_hardware

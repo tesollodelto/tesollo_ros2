@@ -19,7 +19,7 @@
 | Fingers | 5 |
 | Joints | 20 (4 per finger) |
 | F/T Sensor | Yes |
-| GPIO | Yes (3 outputs, 1 input) |
+| GPIO | No (not fitted on S variants) |
 
 ### 15-DOF Configuration
 
@@ -30,7 +30,7 @@
 | Fingers | 5 |
 | Joints | 15 (3 per finger) |
 | F/T Sensor | Yes |
-| GPIO | Yes (3 outputs, 1 input) |
+| GPIO | No (not fitted on S variants) |
 
 ## Packages
 
@@ -94,7 +94,13 @@ All driver launch files accept these arguments:
 | `delto_port` | `502` | TCP port of the gripper |
 | `fingertip_sensor` | `false` | Enable reading F/T sensor data from the hardware |
 | `ft_broadcaster` | `false` | Enable broadcasting F/T data as ROS 2 topics |
-| `io` | `false` | Enable GPIO interfaces |
+| `io` | `false` | Not supported on DG-5F-S -- see the note below |
+
+```{warning}
+The DG-5F-S variants have no GPIO hardware. Passing `io:=true` has no effect --
+the driver logs a warning, exposes no `gpio` state interfaces and creates no
+GPIO services.
+```
 
 Example:
 
@@ -252,17 +258,10 @@ Replace `<ns>` with your gripper's namespace (e.g., `dg5f_s_right`, `dg5f_s_left
 : **Type:** `std_srvs/srv/Trigger`
 : Zero-calibrate all fingertip F/T sensors. Call when nothing is touching the fingertips.
 
-`/<ns>/delto_hardware_interface_node/set_gpio_output1`
-: **Type:** `std_srvs/srv/SetBool`
-: Set GPIO output 1 (`true` = high, `false` = low)
-
-`/<ns>/delto_hardware_interface_node/set_gpio_output2`
-: **Type:** `std_srvs/srv/SetBool`
-: Set GPIO output 2
-
-`/<ns>/delto_hardware_interface_node/set_gpio_output3`
-: **Type:** `std_srvs/srv/SetBool`
-: Set GPIO output 3
+```{note}
+The `set_gpio_output1` / `2` / `3` services documented for the other models are
+**not** created on DG-5F-S, which has no GPIO hardware.
+```
 
 ## Verifying the Connection
 
